@@ -40,9 +40,10 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex-shrink-0">
-            <LogoSVG width={140} height={42} />
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo — enlarged, vertically centered */}
+          <Link href="/" className="flex-shrink-0 flex items-center" aria-label="CM Impianti — Homepage">
+            <LogoSVG width={200} height={60} />
           </Link>
 
           {/* Desktop nav */}
@@ -61,7 +62,7 @@ export default function Navbar() {
                     </svg>
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-2 w-64 bg-[#111827] border border-[#1E2A42] rounded-lg shadow-xl transition-all duration-200 ${
+                    className={`absolute top-full left-0 mt-2 w-64 bg-[#111827] border border-[#1E2A42] rounded-2xl shadow-2xl transition-all duration-200 overflow-hidden ${
                       servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
                     onMouseEnter={() => setServicesOpen(true)}
@@ -71,7 +72,7 @@ export default function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-3 text-sm text-[#E8EDF5] hover:text-[#C9A84C] hover:bg-[#1E2A42] transition-colors border-b border-[#1E2A42] last:border-0 first:rounded-t-lg last:rounded-b-lg"
+                        className="block px-4 py-3 text-sm text-[#E8EDF5] hover:text-[#C9A84C] hover:bg-[#1E2A42] transition-colors border-b border-[#1E2A42] last:border-0"
                       >
                         {child.label}
                       </Link>
@@ -91,13 +92,14 @@ export default function Navbar() {
           </nav>
 
           {/* CTA desktop */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#9BA8C0] hover:text-[#C9A84C] transition-colors text-sm"
-              aria-label="WhatsApp"
+              className="text-[#9BA8C0] hover:text-[#25D366] transition-colors"
+              aria-label="Contatta CM Impianti su WhatsApp"
+              title="WhatsApp CM Impianti"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -106,7 +108,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/contatti"
-              className="bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] px-5 py-2 rounded font-semibold text-sm tracking-wide transition-colors"
+              className="bg-[#C9A84C] hover:bg-[#D4B870] hover:scale-105 text-[#0A0F1E] px-5 py-2.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-200 shadow-lg hover:shadow-[#C9A84C]/25"
             >
               Richiedi Preventivo
             </Link>
@@ -116,7 +118,7 @@ export default function Navbar() {
           <button
             className="lg:hidden text-[#E8EDF5] p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
+            aria-label="Apri menu di navigazione"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileOpen ? (
@@ -160,7 +162,7 @@ export default function Navbar() {
           <div className="pt-3 border-t border-[#1E2A42]">
             <Link
               href="/contatti"
-              className="block bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] px-5 py-3 rounded font-semibold text-center transition-colors"
+              className="block bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] px-5 py-3 rounded-full font-semibold text-center transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               Richiedi Preventivo

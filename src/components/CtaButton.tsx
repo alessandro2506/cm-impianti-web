@@ -15,11 +15,11 @@ export default function CtaButton({
   className = "",
   external = false,
 }: CtaButtonProps) {
-  const base = "inline-flex items-center gap-2 px-6 py-3 rounded font-semibold text-sm tracking-wide transition-all duration-200";
+  const base = "inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all duration-200";
   const variants = {
-    primary: "bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E]",
+    primary: "bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] shadow-lg hover:shadow-[#C9A84C]/25 hover:scale-105",
     secondary: "bg-[#1E2A42] hover:bg-[#263452] text-[#E8EDF5] border border-[#1E2A42] hover:border-[#C9A84C]",
-    outline: "border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E]",
+    outline: "border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E] hover:scale-105",
   };
 
   const props = external

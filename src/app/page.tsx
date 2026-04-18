@@ -4,7 +4,8 @@ import Link from "next/link";
 import KpiCounter from "@/components/KpiCounter";
 import SectionTitle from "@/components/SectionTitle";
 import CtaButton from "@/components/CtaButton";
-import { SERVICES, CASE_STUDIES, PARTNERS, SITE_CONFIG } from "@/lib/data";
+import InfiniteMarquee from "@/components/InfiniteMarquee";
+import { SERVICES, CASE_STUDIES, SITE_CONFIG } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "CM Impianti | Impiantistica Navale e Industriale — Palermo, Sicilia",
@@ -73,7 +74,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVIZI */}
-      <section className="py-20 lg:py-28">
+      <section className="py-24 lg:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <SectionTitle
@@ -87,7 +88,7 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 href={`/servizi/${service.slug}`}
-                className="group relative overflow-hidden rounded-lg border border-[#1E2A42] hover:border-[#C9A84C] transition-all duration-300"
+                className="group relative overflow-hidden rounded-[12px] border border-[#1E2A42] hover:border-[#C9A84C] transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="relative h-56">
                   <Image
@@ -120,7 +121,7 @@ export default function HomePage() {
       </section>
 
       {/* CASE STUDY PREVIEW */}
-      <section className="py-20 lg:py-28 bg-[#060B16]">
+      <section className="py-24 lg:py-36 bg-[#060B16]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
             <SectionTitle
@@ -137,7 +138,7 @@ export default function HomePage() {
               <Link
                 key={cs.slug}
                 href={`/progetti/${cs.slug}`}
-                className="group relative overflow-hidden rounded-lg"
+                className="group relative overflow-hidden rounded-[12px]"
               >
                 <div className="relative h-64">
                   <Image
@@ -165,7 +166,7 @@ export default function HomePage() {
               <Link
                 key={cs.slug}
                 href={`/progetti/${cs.slug}`}
-                className="group relative overflow-hidden rounded-lg"
+                className="group relative overflow-hidden rounded-[12px]"
               >
                 <div className="relative h-48">
                   <Image
@@ -191,27 +192,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PARTNER STRIP */}
-      <section className="py-12 border-y border-[#1E2A42]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-[#9BA8C0] text-xs tracking-[0.2em] uppercase mb-8">
-            Hanno scelto CM Impianti
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-            {PARTNERS.map((partner) => (
-              <span
-                key={partner.name}
-                className="text-[#9BA8C0] hover:text-[#C9A84C] transition-colors text-sm font-semibold tracking-wide"
-              >
-                {partner.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* PARTNER CAROUSEL */}
+      <InfiniteMarquee />
 
       {/* CTA FINALE */}
-      <section className="py-20 lg:py-28 relative overflow-hidden">
+      <section className="py-24 lg:py-36 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://www.cmimpianti.info/wp-content/uploads/2021/02/slide-refitting-cm-impianti.jpg"
