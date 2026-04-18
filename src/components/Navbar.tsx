@@ -1,0 +1,173 @@
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import LogoSVG from "./LogoSVG";
+import { SITE_CONFIG } from "@/lib/data";
+
+const NAV_LINKS = [
+  { href: "/chi-siamo", label: "Chi Siamo" },
+  {
+    href: "/servizi",
+    label: "Servizi",
+    children: [
+      { href: "/servizi/impiantistica-navale", label: "Impiantistica Navale" },
+      { href: "/servizi/impiantistica-industriale", label: "Impiantistica Industriale" },
+      { href: "/servizi/refitting-navi", label: "Refitting Navi" },
+    ],
+  },
+  { href: "/progetti", label: "Progetti" },
+  { href: "/certificazioni", label: "Certificazioni" },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0A0F1E]/95 backdrop-blur-md border-b border-[#1E2A42] shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <Link href="/" className="flex-shrink-0">
+            <LogoSVG width={140} height={42} />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {NAV_LINKS.map((link) =>
+              link.children ? (
+                <div key={link.href} className="relative group">
+                  <button
+                    className="flex items-center gap-1 text-[#E8EDF5] hover:text-[#C9A84C] transition-colors text-sm font-medium tracking-wide"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    {link.label}
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-2 w-64 bg-[#111827] border border-[#1E2A42] rounded-lg shadow-xl transition-all duration-200 ${
+                      servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="block px-4 py-3 text-sm text-[#E8EDF5] hover:text-[#C9A84C] hover:bg-[#1E2A42] transition-colors border-b border-[#1E2A42] last:border-0 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[#E8EDF5] hover:text-[#C9A84C] transition-colors text-sm font-medium tracking-wide"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
+
+          {/* CTA desktop */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9BA8C0] hover:text-[#C9A84C] transition-colors text-sm"
+              aria-label="WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.107 1.519 5.837L.057 23.943a.5.5 0 00.6.6l6.105-1.462A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.694-.493-5.244-1.358l-.376-.217-3.895.932.947-3.895-.217-.376A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+              </svg>
+            </a>
+            <Link
+              href="/contatti"
+              className="bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] px-5 py-2 rounded font-semibold text-sm tracking-wide transition-colors"
+            >
+              Richiedi Preventivo
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="lg:hidden text-[#E8EDF5] p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {mobileOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-[#0A0F1E] border-t border-[#1E2A42] px-4 py-4 space-y-3">
+          {NAV_LINKS.map((link) => (
+            <div key={link.href}>
+              <Link
+                href={link.href}
+                className="block text-[#E8EDF5] hover:text-[#C9A84C] py-2 font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+              {link.children && (
+                <div className="ml-4 space-y-2 mt-1">
+                  {link.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="block text-[#9BA8C0] hover:text-[#C9A84C] py-1 text-sm"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          <div className="pt-3 border-t border-[#1E2A42]">
+            <Link
+              href="/contatti"
+              className="block bg-[#C9A84C] hover:bg-[#D4B870] text-[#0A0F1E] px-5 py-3 rounded font-semibold text-center transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              Richiedi Preventivo
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
