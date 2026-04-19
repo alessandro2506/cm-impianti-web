@@ -20,91 +20,102 @@ export default function ScrollToTop() {
 
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  // Wave geometry
-  const SIZE = 56;
+  const SIZE = 52;
   const R = SIZE / 2;
-  const fillY = R * 2 * (1 - progress); // from bottom
-  const waveAmp = 4;
-  const clipId = "scroll-wave-clip";
+  const clipId = "stt-clip";
 
-  // Build wave path that clips the circle fill
-  // We draw a shape: wave across top + rect down to bottom of circle
-  const buildWavePath = () => {
-    const pts = 40;
-    const step = (R * 2) / pts;
+  // Fill rises from bottom. fillY = top of the fill area (0 = full circle, SIZE = empty)
+  // At progress=1, fillY=0 → entire circle filled (solid)
+  // Wave amplitude shrinks to 0 as progress→1 for clean solid circle at 100%
+  const fillY = SIZE * (1 - progress);
+  const amp = progress >= 0.98 ? 0 : 3.5 * (1 - progress * 0.6);
+
+  const buildFill = () => {
+    if (progress >= 0.98) {
+      // Solid fill — full rectangle inside clip
+      return `M 0 0 L ${SIZE} 0 L ${SIZE} ${SIZE} L 0 ${SIZE} Z`;
+    }
+    const pts = 32;
     let d = `M 0 ${fillY}`;
     for (let i = 0; i <= pts; i++) {
-      const x = i * step;
-      const y = fillY + Math.sin((i / pts) * Math.PI * 4) * waveAmp;
+      const x = (i / pts) * SIZE;
+      const y = fillY + Math.sin((i / pts) * Math.PI * 3) * amp;
       d += ` L ${x} ${y}`;
     }
-    d += ` L ${R * 2} ${R * 2} L 0 ${R * 2} Z`;
+    d += ` L ${SIZE} ${SIZE} L 0 ${SIZE} Z`;
     return d;
   };
+
+  // Progress ring circumference
+  const ringR = R - 2;
+  const circ = 2 * Math.PI * ringR;
 
   return (
     <button
       onClick={handleClick}
-      aria-label="Torna in cima"
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${
+      aria-label="Torna in cima alla pagina"
+      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 hover:scale-110 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
       style={{ width: SIZE, height: SIZE }}
     >
-      <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`}>
-        {/* Background circle */}
-        <circle cx={R} cy={R} r={R - 1} fill="#111827" stroke="#1E2A42" strokeWidth="1.5" />
+      <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} overflow="visible">
+        {/* Shadow */}
+        <filter id="stt-shadow">
+          <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#2563EB" floodOpacity="0.35" />
+        </filter>
 
-        {/* Wave fill clipped to circle */}
+        {/* Clip to circle */}
         <defs>
           <clipPath id={clipId}>
-            <circle cx={R} cy={R} r={R - 2} />
+            <circle cx={R} cy={R} r={R - 1} />
           </clipPath>
         </defs>
+
+        {/* Background */}
+        <circle cx={R} cy={R} r={R - 1} fill="#0F172A" />
+
+        {/* Wave fill — vertical only, no horizontal animation */}
         <g clipPath={`url(#${clipId})`}>
-          <path d={buildWavePath()} fill="#C9A84C" opacity="0.85" className="transition-all duration-300">
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              from={`-${R * 2} 0`}
-              to="0 0"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </path>
-          {/* Second wave offset for depth */}
-          <path d={buildWavePath()} fill="#C9A84C" opacity="0.5" className="transition-all duration-300">
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              from="0 0"
-              to={`${R * 2} 0`}
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </path>
+          <path
+            d={buildFill()}
+            fill="url(#stt-grad)"
+            style={{ transition: "d 0.2s ease" }}
+          />
         </g>
+
+        {/* Gradient def */}
+        <defs>
+          <linearGradient id="stt-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#3B82F6" />
+            <stop offset="100%" stopColor="#1D4ED8" />
+          </linearGradient>
+        </defs>
 
         {/* Progress ring */}
         <circle
           cx={R}
           cy={R}
-          r={R - 1.5}
+          r={ringR}
           fill="none"
-          stroke="#C9A84C"
+          stroke="#3B82F6"
           strokeWidth="1.5"
-          strokeDasharray={`${2 * Math.PI * (R - 1.5)}`}
-          strokeDashoffset={`${2 * Math.PI * (R - 1.5) * (1 - progress)}`}
+          strokeDasharray={circ}
+          strokeDashoffset={circ * (1 - progress)}
           strokeLinecap="round"
           transform={`rotate(-90 ${R} ${R})`}
-          className="transition-all duration-300"
+          style={{ transition: "stroke-dashoffset 0.2s ease" }}
         />
 
-        {/* Arrow up */}
-        <path
-          d={`M ${R} ${R - 7} L ${R - 5} ${R + 3} L ${R} ${R} L ${R + 5} ${R + 3} Z`}
-          fill={progress > 0.4 ? "#0A0F1E" : "#E8EDF5"}
-          className="transition-colors duration-300"
+        {/* Arrow up icon */}
+        <polyline
+          points={`${R - 5},${R + 4} ${R},${R - 4} ${R + 5},${R + 4}`}
+          fill="none"
+          stroke={progress > 0.35 ? "#fff" : "#94A3B8"}
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ transition: "stroke 0.3s" }}
         />
       </svg>
     </button>

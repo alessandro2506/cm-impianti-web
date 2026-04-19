@@ -16,19 +16,24 @@ export default function SectionTitle({
   return (
     <div className={center ? "text-center" : ""}>
       {label && (
-        <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
-          {label}
-        </p>
+        <div className={`inline-flex items-center gap-2 mb-5 ${center ? "justify-center" : ""}`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+          <p className="text-blue-400 text-xs font-semibold tracking-[0.22em] uppercase">
+            {label}
+          </p>
+        </div>
       )}
       <h2
-        className={`font-heading text-4xl md:text-5xl lg:text-6xl leading-none ${
-          gold ? "text-[#C9A84C]" : "text-[#E8EDF5]"
-        }`}
+        className={`font-heading leading-none ${
+          gold
+            ? "text-[#C9A84C]"
+            : "text-white"
+        } text-4xl md:text-5xl lg:text-[56px]`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-[#9BA8C0] text-lg leading-relaxed max-w-2xl">
+        <p className={`mt-5 text-[#64748B] text-lg leading-[1.85] ${center ? "mx-auto" : ""} max-w-2xl`}>
           {subtitle}
         </p>
       )}
