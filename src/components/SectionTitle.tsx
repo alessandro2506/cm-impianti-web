@@ -26,13 +26,13 @@ export default function SectionTitle({
       )}
       <h2
         className={`font-heading leading-none ${
-          gold ? "text-[#C9A84C]" : "text-[#F0F4F8]"
+          gold ? "text-[#C9A84C]" : "text-white"
         } text-4xl md:text-5xl lg:text-[56px]`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-5 text-[#8A9BAD] text-lg leading-[1.85] ${center ? "mx-auto" : ""} max-w-2xl`}>
+        <p className={`mt-5 text-lg leading-[1.85] text-slate-200 ${center ? "mx-auto" : ""} max-w-2xl`}>
           {subtitle}
         </p>
       )}

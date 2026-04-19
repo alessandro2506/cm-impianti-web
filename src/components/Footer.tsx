@@ -12,7 +12,7 @@ const CERT_BADGES = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-auto w-full min-w-0 overflow-x-clip bg-[#060C1A]">
+    <footer className="relative mt-auto w-full min-w-0 bg-[#060C1A]">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/85 to-transparent"
         aria-hidden
@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Main grid — 2-col on mobile, 12-col on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-10">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 pb-10 pt-24 lg:grid-cols-12">
 
           {/* Brand col — full width on mobile (col-span-2), 4 cols on desktop */}
           <div className="col-span-2 lg:col-span-4">

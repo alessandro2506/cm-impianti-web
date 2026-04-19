@@ -48,18 +48,18 @@ export default function HomePage() {
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl xl:text-[96px] leading-[0.94] text-[#F0F4F8] mb-6">
+            <h1 className="mb-6 font-heading text-6xl leading-[0.94] text-white sm:text-7xl lg:text-8xl xl:text-[96px]">
               IMPIANTISTICA
               <br />
               <span className="text-[#4DB8FF]">NAVALE</span>
               <br />
-              <span className="text-[#DDEAF8]/70">{"& INDUSTRIALE"}</span>
+              <span className="text-slate-200">{"& INDUSTRIALE"}</span>
             </h1>
 
             {/* Text with mobile readability protection */}
             <div className="relative mb-12 sm:mb-14">
               <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
-              <p className="relative text-[#D3E4F8] text-lg lg:text-xl leading-[1.75] max-w-xl">
+              <p className="relative max-w-xl text-lg leading-[1.75] text-slate-100 lg:text-xl">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
                 Certificati Bureau Veritas. Contractor navale di fiducia.
               </p>
@@ -78,7 +78,7 @@ export default function HomePage() {
             </div>
 
             {/* KPI — integrated into hero bottom */}
-            <div className="reveal">
+            <div>
               <KpiCounter />
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function HomePage() {
       {/* ─── SERVIZI — magazine grid ─── */}
       <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#07152B] py-32 pb-36 lg:py-44 lg:pb-48">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
-          <div className="mb-16 reveal">
+          <div className="mb-16">
             <SectionTitle
               label="Cosa facciamo"
               title="SERVIZI CORE"
@@ -105,7 +105,7 @@ export default function HomePage() {
           </div>
 
           {/* Magazine grid: first card col-span-2, two medium alongside */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal-group">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {/* Large card */}
             <Link
               href={`/servizi/${SERVICES[0].slug}`}
@@ -126,7 +126,7 @@ export default function HomePage() {
                 <h3 className="font-heading text-3xl text-[#F0F4F8] group-hover:text-[#C9A84C] transition-colors leading-tight mb-3">
                   {SERVICES[0].title}
                 </h3>
-                <p className="text-[#8A9BAD] text-sm leading-[1.85] mb-5 line-clamp-2 max-w-lg">
+                <p className="mb-5 max-w-lg line-clamp-2 text-sm leading-[1.85] text-slate-300">
                   {SERVICES[0].description}
                 </p>
                 <span className="text-[#C9A84C] text-sm font-medium flex items-center gap-1.5 group-hover:gap-3 transition-all">
@@ -178,7 +178,7 @@ export default function HomePage() {
       {/* ─── CASE STUDY — masonry 2+3 ─── */}
       <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#061124] pb-28 pt-32 lg:pb-40 lg:pt-44">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
-          <div className="mb-10 reveal">
+          <div className="mb-10">
             <SectionTitle
               label="Track record"
               title="PROGETTI LANDMARK"
@@ -186,14 +186,14 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="mb-14 lg:mb-20 reveal">
+          <div className="mb-14 lg:mb-20">
             <CtaButton href="/progetti" variant="secondary" className="w-full justify-center sm:w-auto">
               Visione dei progetti
             </CtaButton>
           </div>
 
           {/* Top row: 2 large */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 reveal-group">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {CASE_STUDIES.slice(0, 2).map((cs) => (
               <Link
                 key={cs.slug}
@@ -223,7 +223,7 @@ export default function HomePage() {
           </div>
 
           {/* Bottom row: 3 medium */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5 reveal-group">
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {CASE_STUDIES.slice(2).map((cs) => (
               <Link
                 key={cs.slug}
@@ -269,7 +269,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: copy */}
-            <div className="reveal">
+            <div>
               <SectionTitle
                 label="Parliamo del tuo progetto"
                 title="HAI UN PROGETTO NAVALE O INDUSTRIALE?"
@@ -298,7 +298,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: real image */}
-            <div className="relative h-80 lg:h-[420px] rounded-2xl overflow-hidden border border-[#C9A84C]/10 reveal">
+            <div className="relative h-80 overflow-hidden rounded-2xl border border-[#C9A84C]/10 lg:h-[420px]">
               <Image
                 src="https://www.cmimpianti.info/wp-content/uploads/2021/02/slide-refitting-cm-impianti.jpg"
                 alt="CM Impianti refitting cantiere navale"

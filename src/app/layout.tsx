@@ -5,8 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
-import RevealOnScroll from "@/components/RevealOnScroll";
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -59,11 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${bebas.variable}`}>
-      <body className="min-h-screen min-w-0 flex flex-col overflow-x-clip bg-[#0A0F1E] text-[#E8EDF5]">
-        <RevealOnScroll />
+    <html lang="it" className={`${inter.variable} ${bebas.variable} h-full w-full`}>
+      <body className="flex min-h-screen w-full min-w-0 flex-col bg-[#0A0F1E] text-[#E8EDF5]">
         <Navbar />
-        <main className="flex-1 w-full min-w-0 scroll-pt-28 pt-24 sm:pt-[6rem] lg:scroll-pt-32 lg:pt-[7.75rem]">{children}</main>
+        <main className="min-h-0 w-full flex-1 scroll-pt-28 pt-24 sm:pt-[6rem] lg:scroll-pt-32 lg:pt-[7.75rem]">{children}</main>
         <Footer />
         <CookieBanner />
         <ScrollToTop />

@@ -1,108 +1,49 @@
-# CM Impianti — Specifiche UX/UI implementate (Apr 2026)
+# CM Impianti — Specifiche definitive (layout, branding, UX)
 
-## Obiettivo
-Ripristinare la piena visibilita dei contenuti homepage e allineare l'interfaccia a uno standard premium mobile-first, con look tecnico ciano/blu e navigazione robusta.
+Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 
-## Fix strutturali critici
-- Risolto il bug "contenuti fantasma" dopo Hero.
-- Le classi `reveal` e `reveal-group` non nascondono piu permanentemente i blocchi.
-- Animazioni reveal ora attivate da observer client-side dedicato (`RevealOnScroll`) con fallback sicuro: senza JS i contenuti restano visibili.
-- Evitati stati bloccanti basati su opacita iniziale non risolta.
+> Su filesystem **case-insensitive** (es. macOS predefinito) questo file può comparire anche come `cm_impianti.md`: è lo stesso contenuto.
 
-## Header e menu mobile
-- Header con `z-index` alto e `backdrop blur` costante per layering stabile in scroll.
-- Overlay mobile ridisegnato in stile premium: pannello chiaro, margini ampi, tipografia elegante e switch lingua visuale `IT/EN`.
-- Blocco scroll body quando il menu mobile e aperto (`overflow-hidden` su `body`).
-- Logo mobile centrato, piu grande e non tagliato ai margini.
+## 1. Full-width e responsive (web e mobile)
 
-## CTA e bottoni
-- Tutti i pulsanti principali uniformati a proporzioni mobile premium:
-  - `rounded-full`
-  - altezza minima ampia
-  - padding orizzontale coerente
-  - tipografia piu leggibile
-- CTA primarie in gradiente blu/ciano (`#0075FF -> #00C4FF`).
-- CTA secondarie in stile light outline ad alta leggibilita.
+- **`html`**: `width: 100%`; nessun `overflow-x` forzato su `html`/`body` che tagli il layout o crei bande vuote.
+- **`body`**: `w-full min-w-0`, flex column; nessun `overflow-x: clip` globale.
+- **`main`**: `w-full min-h-0 flex-1` con padding-top per l’header fisso (`scroll-pt-*` + `pt-*` allineati all’altezza navbar).
+- **Sezioni**: `w-full min-w-0`; contenuto interno con `max-w-7xl mx-auto` solo come **colonna di lettura**, non come limite che lascia il viewport “vuoto” a destra (`min-w-0` su flex children è obbligatorio).
 
-## Home visual refresh
-- Applicati gradienti soft ciano/blu su sezioni chiave per profondita tech.
-- Migliorata gerarchia testo (leading, contrasto, bilanciamento pesi).
-- Marquee partner resa piu leggibile, fluida e continua (infinite marquee con doppia traccia).
+## 2. Branding e logo
 
-## Navigazione e routing
-- Eliminati 404 principali da navigazione:
-  - creata pagina `src/app/servizi/page.tsx`
-  - creata pagina `src/app/privacy/page.tsx`
-  - creata pagina `src/app/cookie/page.tsx`
-- Link menu e footer ora puntano a route esistenti.
+- **`HeaderLogo`**: marchio **CM IMPIANTI** leggibile.
+  - **CM**: grande, gradiente ciano/blu (`background-clip: text`), elemento iconico.
+  - **IMPIANTI**: affiancato, bianco, tracking definito.
+  - Sotto: **Performance Technology** — `font-body` extralight, maiuscolo, tracking ampio, `text-slate-300`.
+- Footer: wordmark compatto coerente + tagline.
 
-## Componenti toccati
-- `src/components/RevealOnScroll.tsx` (nuovo)
-- `src/app/globals.css`
-- `src/app/layout.tsx`
-- `src/components/Navbar.tsx`
-- `src/components/CtaButton.tsx`
-- `src/components/InfiniteMarquee.tsx`
-- `src/app/page.tsx`
-- `src/app/servizi/page.tsx` (nuovo)
-- `src/app/privacy/page.tsx` (nuovo)
-- `src/app/cookie/page.tsx` (nuovo)
+## 3. Homepage e visibilità contenuti
 
-## Nota design
-Il linguaggio visivo e stato riallineato su un registro premium-tech: forte contrasto, superfici pulite, CTA ad alta evidenza, menu mobile editoriale e leggibilita prioritaria su viewport iPhone.
+- Nessun blocco lasciato a `opacity: 0`: `.reveal` / `.reveal-group` in `globals.css` impostano **sempre** `opacity: 1`.
+- **`RevealOnScroll`** rimosso dal progetto (non più necessario).
+- Hero e sezioni: **`text-white`**, **`text-slate-100`**, **`text-slate-200`**, **`text-slate-300`** su sfondi scuri; KPI con etichette leggibili.
 
----
+## 4. Menu mobile e lingua
 
-## Aggiornamento UX (stesso mese — iterazione feedback mobile)
+- **Solo italiano**: nessuno switch IT/EN né bandierine.
+- Drawer mobile: link **grandi**, **centrati**, **bold** (`font-heading`, `text-3xl` / `sm:text-4xl`); sotto-voci servizi in pannello chiaro, touch-friendly.
 
-### Logo e branding
-- Nuovo componente `HeaderLogo`: icona vettoriale stile marchio (gradiente ciano/blu), wordmark **CM IMPIANTI** e tagline **Performance Technology**.
-- Desktop: logo a sinistra; mobile: hamburger a sinistra, logo centrato con `max-width` per evitare tagli.
+## 5. Partner (marquee)
 
-### Menu mobile (fix visibilita)
-- Menu reso tramite **React Portal** su `document.body` con `z-index` 200, cosi non resta intrappolato negli stacking context dell’header.
-- Pannello bianco **slide-in da destra** con transizione; backdrop scuro sotto; pulsante chiusura in header drawer.
-- Scroll-to-top portato a `z-40` per non coprire il menu.
+- Titolo **“Hanno scelto CM Impianti”**: grande, centrato sopra il carosello; sottotitolo in `text-slate-200`.
 
-### Home: ritmo verticale e CTA
-- Piu spazio tra paragrafo hero e bottoni; margini maggiori tra CTA e griglia KPI.
-- `CtaButton`: padding interno aumentato (`min-h` ~3.75rem, `px-10` / `sm:px-12`).
-- Sezioni **Servizi Core** e **Progetti Landmark**: piu `padding-y` e margine tra le due sezioni.
-- Sezione **Progetti Landmark**: bottone rinominato in **Visione dei progetti** e spostato **sopra** la griglia progetti, con margine generoso.
+## 6. Footer
 
-### Offset per header fisso
-- `main` con padding-top superiore (`pt-[5.75rem]` / `lg:pt-[7.25rem]`) e `scroll-pt` per ancore.
-- Prime sezioni di contatti, certificazioni, progetti, chi-siamo, servizi: `pt` aumentato e `scroll-mt-28` dove serve.
-- Layout servizi e case study: piu padding nel hero per titoli leggibili sotto header.
+- Linea oro superiore + **`pt-24`** tra il bordo e il primo contenuto (respiro / “aria”).
+- Nessun `overflow-x` superfluo sul footer.
 
-### Certificazioni (pagine servizio)
-- Sostituito il blocco tag inline con `CertificationGrid`: griglia responsive, card con icone scudo uniformi e testo.
+## 7. Nav desktop — hover
 
-### Footer
-- Separatore superiore piu marcato in oro (`border-t` + `shadow` inset) per staccare il footer dal corpo pagina.
+- **`.nav-pill`**: hover con leggero vetro (`background` + `backdrop-blur`) e **sottolineatura** via `::after` con **`transition: transform 0.3s`**.
 
----
+## File principali
 
-## Desktop layout, overflow e navigazione SaaS (Apr 2026)
-
-### Overflow e larghezze
-- `html` e `body`: `overflow-x: clip`, `max-width: 100%`, `min-width: 0` dove serve per evitare bande vuote o scroll orizzontale.
-- `main`: `w-full min-w-0` con padding-top aumentato (`pt-24` → `lg:pt-[7.75rem]`) per titoli mai sotto header fisso.
-- Sezioni homepage: `w-full min-w-0`, contenuti in `max-w-7xl mx-auto`; orb decorativa CTA limitata con `min()` per non uscire dal viewport.
-- KPI grid: `w-full max-w-full`, padding celle ridotto su mobile.
-- Marquee: sezione `w-full min-w-0`; titolo in contenitore `max-w-7xl`.
-
-### Mesh e gradienti (stile Alvenco / SaaS)
-- Body: mesh radiale leggera (ciano/blu) + `background-attachment: fixed` per profondita senza appiattire le sezioni.
-- Sezioni Servizi / Progetti / CTA: gradienti radiali sovrapposti piu morbidi.
-
-### Menu desktop
-- Link con classe `nav-pill`: `rounded-xl`, peso 400, hover con vetro (`bg-white/10`, `backdrop-blur`).
-- Menu centrato nel header (`flex-1 justify-center`) tra logo e azioni.
-- Dropdown Servizi: pannello vetro `rgba` + blur, bordo `white/10`, voci con hover `bg-white/10`.
-
-### Footer premium
-- Linea oro superiore esplicita: strato `h-px` a gradiente orizzontale + `border-t` dorato sottile.
-
-### Logo
-- Tagline Performance Technology: tracking e dimensioni aumentate su desktop per leggibilita.
+- `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`
+- `src/components/HeaderLogo.tsx`, `Navbar.tsx`, `Footer.tsx`, `InfiniteMarquee.tsx`, `SectionTitle.tsx`, `KpiCounter.tsx`

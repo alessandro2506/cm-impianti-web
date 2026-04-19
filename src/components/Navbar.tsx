@@ -86,45 +86,28 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="px-4 py-5">
-            <div className="flex gap-2 rounded-2xl bg-[#F3F8FF] p-1.5">
-              <span className="flex h-11 flex-1 items-center justify-center rounded-xl border border-[#DCEAF9] text-lg font-semibold text-[#19395E]">
-                IT
-              </span>
-              <span className="flex h-11 flex-1 items-center justify-center rounded-xl bg-[#0A2240] text-lg font-semibold text-white">
-                EN
-              </span>
-            </div>
-          </div>
-
-          <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">
-            <div className="space-y-1">
+          <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-6 pt-2">
+            <nav className="flex flex-col items-stretch gap-1">
               {NAV_LINKS.map((link) => (
-                <div key={link.href}>
+                <div key={link.href} className="w-full">
                   <Link
                     href={link.href}
-                    className="flex items-center justify-between rounded-2xl px-4 py-3.5 font-heading text-2xl leading-none tracking-[0.02em] text-[#0A2240] transition-colors hover:bg-[#EFF6FF] hover:text-[#005BB5]"
+                    className="flex w-full items-center justify-center rounded-2xl px-4 py-5 text-center font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <span>{link.label}</span>
-                    {link.children && (
-                      <svg className="h-4 w-4 text-[#0A2240]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
+                    {link.label}
                   </Link>
                   {link.children && (
-                    <div className="mx-2 mb-2 overflow-hidden rounded-xl border border-[#E6EFFA] bg-[#F6FAFF]">
+                    <div className="mx-1 mt-1 space-y-0.5 rounded-2xl border border-[#E6EFFA] bg-[#F8FAFC] py-2">
                       {link.children.map((child, idx) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className={`flex items-center gap-3 px-5 py-3 text-sm text-[#35597F] transition-colors hover:text-[#0A2240] ${
+                          className={`flex w-full items-center justify-center px-4 py-4 text-center font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240] ${
                             idx < link.children!.length - 1 ? "border-b border-[#E6EFFA]" : ""
                           }`}
                           onClick={() => setMobileOpen(false)}
                         >
-                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0CA6E8]/60" />
                           {child.label}
                         </Link>
                       ))}
@@ -132,7 +115,7 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-            </div>
+            </nav>
           </div>
 
           <div className="border-t border-[#E7EEF7] p-4 space-y-2.5">

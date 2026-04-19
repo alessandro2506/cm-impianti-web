@@ -59,7 +59,7 @@ export default function KpiCounter() {
           <div className="font-heading text-5xl lg:text-6xl leading-none text-[#C9A84C]">
             <Counter target={parseInt(kpi.value)} suffix={kpi.suffix} />
           </div>
-          <p className="mt-3 text-[#8A9BAD] text-sm leading-snug">{kpi.label}</p>
+          <p className="mt-3 text-sm leading-snug text-slate-200">{kpi.label}</p>
         </div>
       ))}
     </div>
