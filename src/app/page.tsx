@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO — 2-col asymmetric ─── */}
-      <section className="relative min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] flex flex-col justify-center overflow-hidden">
+      <section className="relative flex min-h-[calc(100vh-5rem)] w-full min-w-0 flex-col justify-center overflow-hidden lg:min-h-[calc(100vh-6rem)]">
         {/* Full-bleed image */}
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%]">
@@ -39,7 +39,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full py-14 lg:py-20">
+        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
           {/* Text column — 55% */}
           <div className="lg:w-[55%] xl:w-[50%]">
             {/* Pill badge */}
@@ -94,8 +94,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVIZI — magazine grid ─── */}
-      <section className="relative section-bg py-32 pb-36 lg:py-44 lg:pb-48 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.18),_transparent_48%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.16),_transparent_44%),#07152B]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#07152B] py-32 pb-36 lg:py-44 lg:pb-48">
+        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="mb-16 reveal">
             <SectionTitle
               label="Cosa facciamo"
@@ -176,8 +176,8 @@ export default function HomePage() {
       </section>
 
       {/* ─── CASE STUDY — masonry 2+3 ─── */}
-      <section className="relative section-bg pt-32 pb-28 lg:pt-44 lg:pb-40 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.2),_transparent_45%),#061124]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#061124] pb-28 pt-32 lg:pb-40 lg:pt-44">
+        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="mb-10 reveal">
             <SectionTitle
               label="Track record"
@@ -258,12 +258,14 @@ export default function HomePage() {
       <InfiniteMarquee />
 
       {/* ─── CTA — 2-col with image right + noise texture ─── */}
-      <section className="relative section-bg noise py-32 lg:py-44 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(77,184,255,0.18),_transparent_42%),#081327]" />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #C9A84C, transparent 70%)" }} />
+      <section className="section-bg noise relative w-full min-w-0 overflow-hidden py-32 lg:py-44">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(77,184,255,0.2),_transparent_42%),radial-gradient(ellipse_at_0%_100%,rgba(56,189,248,0.07),transparent_50%),#081327]" />
+        <div
+          className="pointer-events-none absolute left-0 top-1/2 h-[min(500px,90vw)] w-[min(500px,90vw)] max-w-full -translate-y-1/2 rounded-full opacity-[0.07]"
+          style={{ background: "radial-gradient(circle, #C9A84C, transparent 70%)" }}
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: copy */}

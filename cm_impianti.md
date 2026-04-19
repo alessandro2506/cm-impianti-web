@@ -80,3 +80,29 @@ Il linguaggio visivo e stato riallineato su un registro premium-tech: forte cont
 
 ### Footer
 - Separatore superiore piu marcato in oro (`border-t` + `shadow` inset) per staccare il footer dal corpo pagina.
+
+---
+
+## Desktop layout, overflow e navigazione SaaS (Apr 2026)
+
+### Overflow e larghezze
+- `html` e `body`: `overflow-x: clip`, `max-width: 100%`, `min-width: 0` dove serve per evitare bande vuote o scroll orizzontale.
+- `main`: `w-full min-w-0` con padding-top aumentato (`pt-24` → `lg:pt-[7.75rem]`) per titoli mai sotto header fisso.
+- Sezioni homepage: `w-full min-w-0`, contenuti in `max-w-7xl mx-auto`; orb decorativa CTA limitata con `min()` per non uscire dal viewport.
+- KPI grid: `w-full max-w-full`, padding celle ridotto su mobile.
+- Marquee: sezione `w-full min-w-0`; titolo in contenitore `max-w-7xl`.
+
+### Mesh e gradienti (stile Alvenco / SaaS)
+- Body: mesh radiale leggera (ciano/blu) + `background-attachment: fixed` per profondita senza appiattire le sezioni.
+- Sezioni Servizi / Progetti / CTA: gradienti radiali sovrapposti piu morbidi.
+
+### Menu desktop
+- Link con classe `nav-pill`: `rounded-xl`, peso 400, hover con vetro (`bg-white/10`, `backdrop-blur`).
+- Menu centrato nel header (`flex-1 justify-center`) tra logo e azioni.
+- Dropdown Servizi: pannello vetro `rgba` + blur, bordo `white/10`, voci con hover `bg-white/10`.
+
+### Footer premium
+- Linea oro superiore esplicita: strato `h-px` a gradiente orizzontale + `border-t` dorato sottile.
+
+### Logo
+- Tagline Performance Technology: tracking e dimensioni aumentate su desktop per leggibilita.

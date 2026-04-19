@@ -171,8 +171,8 @@ export default function Navbar() {
           : "bg-[#06142A]/55 border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
-        <div className="relative flex h-20 items-center justify-between lg:h-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-10">
+        <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
           {/* Mobile: hamburger a sinistra */}
           <button
             type="button"
@@ -210,67 +210,72 @@ export default function Navbar() {
           {/* Bilanciamento mobile */}
           <div className="w-12 shrink-0 lg:hidden" aria-hidden />
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) =>
-              link.children ? (
-                <div
-                  key={link.href}
-                  className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                >
-                  <button className="nav-link flex items-center gap-1.5 text-[#8A9BAD] hover:text-[#C9A84C] text-sm font-medium tracking-wide py-1">
-                    {link.label}
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
+          {/* Desktop nav — centrato nello spazio disponibile */}
+          <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+            <nav className="flex max-w-full flex-wrap items-center justify-center gap-1 xl:gap-1.5">
+              {NAV_LINKS.map((link) =>
+                link.children ? (
                   <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 rounded-2xl overflow-hidden transition-all duration-200 origin-top ${
-                      servicesOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
-                    }`}
-                    style={{
-                      background: "rgba(10,15,30,0.97)",
-                      backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(201,168,76,0.12)",
-                      boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
-                    }}
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
                   >
-                    {link.children.map((child, i) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className={`flex items-center gap-3 px-5 py-3.5 text-sm text-[#8A9BAD] hover:text-[#F0F4F8] hover:bg-white/[0.04] transition-all ${
-                          i < link.children.length - 1 ? "border-b border-white/[0.05]" : ""
-                        }`}
+                    <button
+                      type="button"
+                      className={`nav-pill flex items-center gap-1.5 ${
+                        servicesOpen ? "bg-white/10 text-white backdrop-blur-md" : ""
+                      }`}
+                    >
+                      {link.label}
+                      <svg
+                        className={`h-3.5 w-3.5 opacity-80 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]/60 flex-shrink-0" />
-                        {child.label}
-                      </Link>
-                    ))}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`absolute top-full left-1/2 z-[80] mt-3 w-64 -translate-x-1/2 overflow-hidden rounded-2xl border border-white/10 transition-all duration-200 ease-out ${
+                        servicesOpen
+                          ? "pointer-events-auto scale-100 opacity-100"
+                          : "pointer-events-none scale-[0.98] opacity-0"
+                      }`}
+                      style={{
+                        background: "rgba(15, 23, 42, 0.82)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        boxShadow: "0 24px 64px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06)",
+                      }}
+                    >
+                      {link.children.map((child, i) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className={`flex items-center gap-3 px-5 py-3 text-sm font-normal text-slate-300 transition-colors hover:bg-white/10 hover:text-white ${
+                            i < link.children.length - 1 ? "border-b border-white/[0.06]" : ""
+                          }`}
+                        >
+                          <span className="h-1 w-1 shrink-0 rounded-full bg-cyan-400/80" />
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="nav-link text-[#8A9BAD] hover:text-[#C9A84C] text-sm font-medium tracking-wide"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </nav>
+                ) : (
+                  <Link key={link.href} href={link.href} className="nav-pill">
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </nav>
+          </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="ml-auto hidden shrink-0 items-center gap-3 lg:flex">
             <a
               href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
               target="_blank"

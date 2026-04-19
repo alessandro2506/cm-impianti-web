@@ -60,10 +60,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={`${inter.variable} ${bebas.variable}`}>
-      <body className="min-h-screen flex flex-col bg-[#0A0F1E] text-[#E8EDF5]">
+      <body className="min-h-screen min-w-0 flex flex-col overflow-x-clip bg-[#0A0F1E] text-[#E8EDF5]">
         <RevealOnScroll />
         <Navbar />
-        <main className="flex-1 scroll-pt-28 pt-[5.75rem] lg:scroll-pt-32 lg:pt-[7.25rem]">{children}</main>
+        <main className="flex-1 w-full min-w-0 scroll-pt-28 pt-24 sm:pt-[6rem] lg:scroll-pt-32 lg:pt-[7.75rem]">{children}</main>
         <Footer />
         <CookieBanner />
         <ScrollToTop />

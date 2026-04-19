@@ -42,7 +42,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function KpiCounter() {
   return (
     <div
-      className="grid grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl overflow-hidden"
+      className="grid w-full min-w-0 max-w-full grid-cols-2 gap-0 overflow-hidden rounded-2xl lg:grid-cols-4"
       style={{
         background: "rgba(255,255,255,0.02)",
         border: "1px solid rgba(201,168,76,0.12)",
@@ -52,7 +52,7 @@ export default function KpiCounter() {
       {KPI.map((kpi, i) => (
         <div
           key={i}
-          className={`px-8 py-10 text-center ${
+          className={`px-4 py-8 text-center sm:px-6 sm:py-10 lg:px-8 ${
             i < KPI.length - 1 ? "border-r border-[#C9A84C]/10" : ""
           } ${i === 1 ? "border-b lg:border-b-0 border-[#C9A84C]/10" : ""}`}
         >

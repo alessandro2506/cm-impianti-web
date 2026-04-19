@@ -11,7 +11,7 @@ export default function HeaderLogo({
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 sm:gap-3 min-w-0 max-w-[min(78vw,260px)] sm:max-w-none ${className}`}
+      className={`inline-flex items-center gap-2.5 sm:gap-3 min-w-0 max-w-[min(78vw,280px)] sm:max-w-none ${className}`}
     >
       <svg
         className={`shrink-0 ${compact ? "h-9 w-9" : "h-10 w-10 sm:h-11 sm:w-11"}`}
@@ -41,8 +41,8 @@ export default function HeaderLogo({
           CM IMPIANTI
         </span>
         <span
-          className={`font-body font-semibold uppercase text-[#9CD6FF]/95 tracking-[0.26em] mt-1 ${
-            compact ? "text-[6px] sm:text-[7px]" : "text-[7px] sm:text-[8px]"
+          className={`font-body font-medium uppercase text-[#B8D4EC] tracking-[0.22em] mt-1.5 leading-tight ${
+            compact ? "text-[8px] sm:text-[9px]" : "text-[9px] sm:text-[10px] lg:text-[11px]"
           }`}
         >
           Performance Technology
