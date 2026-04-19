@@ -10,13 +10,6 @@ export const metadata: Metadata = {
     "Portfolio CM Impianti: 5 case study landmark — MSC Crociere, Silver Spirit, Queen Victoria, Noordam, Oleodotto Gela. Impiantistica navale e industriale Palermo.",
 };
 
-const CATEGORIES = [
-  { id: "all", label: "Tutti" },
-  { id: "refitting-navi", label: "Refitting Navi" },
-  { id: "impiantistica-navale", label: "Impiantistica Navale" },
-  { id: "impiantistica-industriale", label: "Impiantistica Industriale" },
-];
-
 export default function ProgettiPage() {
   return (
     <>

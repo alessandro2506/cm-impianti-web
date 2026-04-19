@@ -45,7 +45,7 @@ export default function ChiSiamoPage() {
             CHI SIAMO
           </h1>
           <p className="text-[#9BA8C0] text-xl max-w-2xl leading-relaxed">
-            Tre decenni di eccellenza nell'impiantistica navale e industriale. Una storia costruita progetto dopo progetto, cantiere dopo cantiere.
+            Tre decenni di eccellenza nell&apos;impiantistica navale e industriale. Una storia costruita progetto dopo progetto, cantiere dopo cantiere.
           </p>
         </div>
       </section>

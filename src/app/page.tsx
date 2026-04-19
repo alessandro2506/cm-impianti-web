@@ -32,7 +32,7 @@ export default function HomePage() {
             />
           </div>
           {/* Left overlay — stronger for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E] from-[40%] via-[#0A0F1E]/80 to-[#0A0F1E]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#041328] from-[34%] via-[#052043]/80 to-[#042342]/45" />
           {/* Mobile full overlay */}
           <div className="absolute inset-0 bg-[#0A0F1E]/60 lg:hidden" />
           {/* Bottom fade */}
@@ -48,18 +48,18 @@ export default function HomePage() {
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl xl:text-[96px] leading-none text-[#F0F4F8] mb-6">
+            <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl xl:text-[96px] leading-[0.94] text-[#F0F4F8] mb-6">
               IMPIANTISTICA
               <br />
-              <span className="text-[#C9A84C]">NAVALE</span>
+              <span className="text-[#4DB8FF]">NAVALE</span>
               <br />
-              <span className="text-[#F0F4F8]/60">{"& INDUSTRIALE"}</span>
+              <span className="text-[#DDEAF8]/70">{"& INDUSTRIALE"}</span>
             </h1>
 
             {/* Text with mobile readability protection */}
             <div className="relative mb-10">
               <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
-              <p className="relative text-[#8A9BAD] text-lg lg:text-xl leading-[1.9] max-w-lg">
+              <p className="relative text-[#D3E4F8] text-lg lg:text-xl leading-[1.75] max-w-xl">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
                 Certificati Bureau Veritas. Contractor navale di fiducia.
               </p>
@@ -94,7 +94,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVIZI — magazine grid ─── */}
-      <section className="relative section-bg py-28 lg:py-40">
+      <section className="relative section-bg py-28 lg:py-40 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.18),_transparent_48%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.16),_transparent_44%),#07152B]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
           <div className="mb-16 reveal">
             <SectionTitle
@@ -176,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CASE STUDY — masonry 2+3 ─── */}
-      <section className="relative section-bg py-28 lg:py-40 bg-[#060C1A]">
+      <section className="relative section-bg py-28 lg:py-40 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.2),_transparent_45%),#061124]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-6 reveal">
             <SectionTitle
@@ -256,7 +256,7 @@ export default function HomePage() {
 
       {/* ─── CTA — 2-col with image right + noise texture ─── */}
       <section className="relative section-bg noise py-28 lg:py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-[#0A0F1E]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(77,184,255,0.18),_transparent_42%),#081327]" />
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.06]"
           style={{ background: "radial-gradient(circle, #C9A84C, transparent 70%)" }} />
 
@@ -281,7 +281,7 @@ export default function HomePage() {
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Buongiorno, vorrei informazioni sui vostri servizi`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/10 rounded-full font-semibold text-[15px] tracking-wide transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 min-h-14 px-9 py-4 border border-[#77DCA1] bg-[#E8F9EE] text-[#14984A] hover:bg-[#DDF6E7] rounded-full font-semibold text-[20px] lg:text-[18px] leading-none tracking-[-0.01em] transition-all duration-200"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />

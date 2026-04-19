@@ -5,25 +5,25 @@ export default function InfiniteMarquee() {
   const items = [...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="py-16 border-y border-[#C9A84C]/10 overflow-hidden bg-[#060C14]">
+    <section className="py-16 border-y border-[#9AD5FF]/20 overflow-hidden bg-[linear-gradient(180deg,#07172D_0%,#0A2240_100%)]">
       <div className="text-center mb-10">
-        <p className="text-[#C9A84C] text-[10px] tracking-[0.3em] uppercase font-semibold mb-1">
+        <p className="text-[#8FD1FF] text-[10px] tracking-[0.3em] uppercase font-semibold mb-1">
           Hanno scelto CM Impianti
         </p>
-        <p className="text-[#8A9BAD] text-xs">Partner e committenti internazionali</p>
+        <p className="text-[#CFE2F6] text-xs">Partner e committenti internazionali</p>
       </div>
 
       <div className="relative">
         <div
           className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #060C14, transparent)" }}
+          style={{ background: "linear-gradient(to right, #07172D, transparent)" }}
         />
         <div
           className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #060C14, transparent)" }}
+          style={{ background: "linear-gradient(to left, #0A2240, transparent)" }}
         />
 
-        <div className="flex marquee-track items-center">
+        <div className="flex marquee-track items-center gap-4">
           {items.map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
@@ -32,14 +32,14 @@ export default function InfiniteMarquee() {
             >
               {partner.logo ? (
                 <div
-                  className="text-[#8A9BAD]/60 hover:text-[#F0F4F8]/80 transition-all duration-300 hover:scale-105"
+                  className="text-[#E6F4FF]/85 hover:text-white transition-all duration-300 hover:scale-105"
                   style={{ width: partner.width, height: partner.height }}
                   title={partner.name}
                   aria-label={`Partner CM Impianti: ${partner.name}`}
                   dangerouslySetInnerHTML={{ __html: partner.logo }}
                 />
               ) : (
-                <span className="text-[#8A9BAD]/60 hover:text-[#F0F4F8]/80 font-medium text-sm tracking-wide transition-colors whitespace-nowrap">
+                <span className="text-[#E6F4FF]/85 hover:text-white font-medium text-sm tracking-wide transition-colors whitespace-nowrap">
                   {partner.name}
                 </span>
               )}

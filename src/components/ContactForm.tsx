@@ -138,7 +138,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <div className="p-4 border border-red-500/30 bg-red-500/10 rounded text-red-400 text-sm">
-          Errore nell'invio. Riprova o contattaci direttamente via email.
+          Errore nell&apos;invio. Riprova o contattaci direttamente via email.
         </div>
       )}
 

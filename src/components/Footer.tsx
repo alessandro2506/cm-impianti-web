@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-[#8A9BAD] text-sm leading-relaxed max-w-xs">
-              30 anni di eccellenza nell'impiantistica navale e industriale. Certificati Bureau Veritas. Partner Fincantieri, MSC Crociere, Silversea, Cunard.
+              30 anni di eccellenza nell&apos;impiantistica navale e industriale. Certificati Bureau Veritas. Partner Fincantieri, MSC Crociere, Silversea, Cunard.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

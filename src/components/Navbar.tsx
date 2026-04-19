@@ -37,26 +37,45 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", mobileOpen);
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [mobileOpen]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A0F1E]/90 backdrop-blur-xl border-b border-[#C9A84C]/10 shadow-[0_1px_40px_rgba(0,0,0,0.5)]"
-          : "bg-transparent"
+          ? "bg-[#06142A]/85 border-b border-[#A4D5FF]/20 shadow-[0_1px_40px_rgba(0,0,0,0.35)]"
+          : "bg-[#06142A]/55 border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="relative flex items-center justify-between h-20 lg:h-24">
 
           {/* Wordmark logo — gold glyph + text */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-3" aria-label="CM Impianti — Homepage">
+          <Link href="/" className="hidden lg:flex flex-shrink-0 items-center gap-3" aria-label="CM Impianti — Homepage">
             <div className="flex items-center gap-[3px] h-8">
               <div className="w-[3px] h-full bg-[#C9A84C] rounded-full" />
               <div className="w-[3px] h-[60%] bg-[#C9A84C]/50 rounded-full" />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-heading text-[26px] lg:text-[28px] text-[#F0F4F8] tracking-[0.08em] leading-none">CM IMPIANTI</span>
-              <span className="font-body text-[8px] lg:text-[9px] text-[#C9A84C]/70 tracking-[0.3em] uppercase mt-[3px]">Performance Technology</span>
+              <span className="font-heading text-[30px] text-[#F0F4F8] tracking-[0.08em] leading-none">CM IMPIANTI</span>
+              <span className="font-body text-[9px] text-[#9CD6FF]/85 tracking-[0.3em] uppercase mt-[3px]">Performance Technology</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/"
+            className="absolute left-1/2 -translate-x-1/2 lg:hidden flex items-center gap-2.5 max-w-[72vw]"
+            aria-label="CM Impianti — Homepage"
+          >
+            <div className="flex items-center gap-[3px] h-9 shrink-0">
+              <div className="w-[3px] h-full bg-[#4DB8FF] rounded-full" />
+              <div className="w-[3px] h-[60%] bg-[#4DB8FF]/60 rounded-full" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-heading text-[32px] text-[#F0F4F8] tracking-[0.06em] leading-none">CM IMPIANTI</span>
             </div>
           </Link>
 
@@ -142,61 +161,55 @@ export default function Navbar() {
 
           {/* Hamburger — 2 lines, 2px height, visible */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-[6px] rounded-xl hover:bg-white/[0.08] active:bg-white/[0.12] transition-all"
+            className="lg:hidden ml-auto flex flex-col justify-center items-center w-12 h-12 gap-[6px] rounded-2xl bg-white text-[#0A2240] border border-[#D7E7F7] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileOpen}
           >
-            <span className={`block w-6 h-[2px] bg-[#E8EDF5] transition-all duration-300 origin-center rounded-full ${mobileOpen ? "rotate-45 translate-y-[4px]" : ""}`} />
-            <span className={`block w-6 h-[2px] bg-[#E8EDF5] transition-all duration-300 origin-center rounded-full ${mobileOpen ? "-rotate-45 -translate-y-[4px]" : ""}`} />
+            <span className={`block w-6 h-[2px] bg-current transition-all duration-300 origin-center rounded-full ${mobileOpen ? "rotate-45 translate-y-[4px]" : ""}`} />
+            <span className={`block w-6 h-[2px] bg-current transition-all duration-300 origin-center rounded-full ${mobileOpen ? "-rotate-45 -translate-y-[4px]" : ""}`} />
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
-        <div
-          className="mx-3 mb-4 rounded-2xl overflow-hidden"
-          style={{
-            background: "rgba(6,12,26,0.98)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
-            border: "1px solid rgba(201,168,76,0.15)",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.04)",
-          }}
-        >
-          {/* Nav header label */}
-          <div className="px-5 pt-5 pb-3 border-b border-white/[0.05]">
-            <p className="text-[#C9A84C]/60 text-[10px] tracking-[0.25em] uppercase font-medium">Navigazione</p>
+      <div className={`lg:hidden fixed inset-0 z-[60] transition-all duration-300 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+        <div className="absolute inset-0 bg-[#041225]/55 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+        <div className="absolute top-[86px] left-4 right-4 bottom-4 bg-white rounded-[30px] shadow-[0_30px_80px_rgba(5,18,37,0.25)] overflow-auto">
+          <div className="px-6 pt-8 pb-6 border-b border-[#E7EEF7]">
+            <p className="text-[#0B2343] text-[34px] font-heading leading-none tracking-[0.02em]">Menu</p>
+            <div className="mt-8 p-1.5 rounded-2xl bg-[#F3F8FF] grid grid-cols-2 gap-2">
+              <button className="h-11 rounded-xl border border-[#DCEAF9] text-[#19395E] text-lg font-semibold">IT</button>
+              <button className="h-11 rounded-xl bg-[#0A2240] text-white text-lg font-semibold">EN</button>
+            </div>
           </div>
-
-          <div className="p-3 space-y-0.5">
+          <div className="px-4 py-5 space-y-1">
             {NAV_LINKS.map((link) => (
               <div key={link.href}>
                 <Link
                   href={link.href}
-                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-[#D0D8E4] hover:text-[#F0F4F8] hover:bg-white/[0.05] transition-all font-medium text-[15px] tracking-[-0.01em]"
+                  className="flex items-center justify-between px-4 py-4 rounded-2xl text-[#0A2240] hover:text-[#005BB5] hover:bg-[#EFF6FF] transition-all font-semibold text-[34px] font-heading leading-none tracking-[0.02em]"
                   onClick={() => setMobileOpen(false)}
                 >
                   <span>{link.label}</span>
                   {link.children && (
-                    <svg className="w-3.5 h-3.5 text-[#C9A84C]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg className="w-4 h-4 text-[#0A2240]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
                 </Link>
                 {link.children && (
-                  <div className="mx-2 mt-0.5 mb-1 rounded-xl overflow-hidden bg-white/[0.02]">
+                  <div className="mx-2 mt-0.5 mb-1 rounded-xl overflow-hidden bg-[#F6FAFF] border border-[#E6EFFA]">
                     {link.children.map((child, idx) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className={`flex items-center gap-3 px-5 py-3 text-[#8A9BAD] hover:text-[#D0D8E4] transition-all text-[13px] ${
-                          idx < link.children.length - 1 ? "border-b border-white/[0.03]" : ""
+                        className={`flex items-center gap-3 px-5 py-3 text-[#35597F] hover:text-[#0A2240] transition-all text-sm ${
+                          idx < link.children.length - 1 ? "border-b border-[#E6EFFA]" : ""
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]/50 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0CA6E8]/60 flex-shrink-0" />
                         {child.label}
                       </Link>
                     ))}
@@ -207,12 +220,12 @@ export default function Navbar() {
           </div>
 
           {/* CTA area */}
-          <div className="p-4 pt-2 border-t border-white/[0.05] space-y-2.5">
+          <div className="p-4 border-t border-[#E7EEF7] space-y-2.5">
             <a
               href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] font-medium text-[14px] tracking-wide transition-all hover:bg-[#25D366]/20"
+              className="flex items-center justify-center gap-2 w-full h-14 rounded-full bg-[#E7F9EE] border border-[#ADE6C0] text-[#1AA552] font-semibold text-base tracking-wide transition-all hover:bg-[#DDF6E7]"
               onClick={() => setMobileOpen(false)}
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current flex-shrink-0">
@@ -223,7 +236,8 @@ export default function Navbar() {
             </a>
             <Link
               href="/contatti"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border-2 border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E] font-semibold text-[15px] tracking-wide transition-all"
+              className="flex items-center justify-center gap-2 w-full h-14 rounded-full text-white font-semibold text-base tracking-wide transition-all shadow-[0_12px_26px_rgba(10,166,255,0.35)]"
+              style={{ background: "linear-gradient(90deg, #0075FF 0%, #00C4FF 100%)" }}
               onClick={() => setMobileOpen(false)}
             >
               Richiedi Preventivo

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${inter.variable} ${bebas.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#0A0F1E] text-[#E8EDF5]">
+        <RevealOnScroll />
         <Navbar />
         <main className="flex-1 pt-20 lg:pt-24">{children}</main>
         <Footer />

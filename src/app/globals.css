@@ -58,24 +58,32 @@ p { line-height: 1.8; }
 
 /* ─── Reveal on scroll ───────────────────────────────── */
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+.has-reveal .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
-.reveal.visible {
+.has-reveal .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Stagger children */
 .reveal-group > * {
+  opacity: 1;
+  transform: none;
+}
+.has-reveal .reveal-group > * {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.reveal-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
-.reveal-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
-.reveal-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.has-reveal .reveal-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+.has-reveal .reveal-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.has-reveal .reveal-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
 
 /* ─── Glass surface ──────────────────────────────────── */
 .glass {
@@ -105,6 +113,7 @@ p { line-height: 1.8; }
 .marquee-track {
   animation: marquee 35s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 .marquee-track:hover { animation-play-state: paused; }
 
