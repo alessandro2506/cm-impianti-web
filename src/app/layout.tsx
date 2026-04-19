@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-[#0A0F1E] text-[#E8EDF5]">
         <RevealOnScroll />
         <Navbar />
-        <main className="flex-1 pt-20 lg:pt-24">{children}</main>
+        <main className="flex-1 scroll-pt-28 pt-[5.75rem] lg:scroll-pt-32 lg:pt-[7.25rem]">{children}</main>
         <Footer />
         <CookieBanner />
         <ScrollToTop />

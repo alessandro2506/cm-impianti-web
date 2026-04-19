@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
 import CtaButton from "./CtaButton";
+import CertificationGrid from "./CertificationGrid";
 import { CASE_STUDIES } from "@/lib/data";
 
 interface ServicePageLayoutProps {
@@ -25,7 +26,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-12 lg:pt-16 pb-20 overflow-hidden">
+      <section className="relative pt-16 lg:pt-24 pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={service.image}
@@ -37,7 +38,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1E]/85 via-[#0A0F1E]/60 to-[#0A0F1E]" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
           <nav className="flex items-center gap-2 text-xs text-[#9BA8C0] mb-6">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
             <span>/</span>
@@ -48,17 +49,17 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
           <h1 className="font-heading text-5xl lg:text-8xl text-[#E8EDF5] leading-none mb-6 max-w-3xl">
             {service.title.toUpperCase()}
           </h1>
-          <p className="text-[#9BA8C0] text-xl max-w-2xl leading-relaxed mb-8">
+          <p className="text-[#9BA8C0] text-xl max-w-2xl leading-relaxed mb-10">
             {service.description}
           </p>
-          <CtaButton href="/contatti" variant="primary">
+          <CtaButton href="/contatti" variant="primary" className="mt-2">
             Parlaci del tuo Progetto
           </CtaButton>
         </div>
       </section>
 
       {/* FEATURES + IMAGE */}
-      <section className="py-20 lg:py-28">
+      <section className="py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -93,29 +94,23 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
       </section>
 
       {/* CERTIFICAZIONI */}
-      <section className="py-12 bg-[#060B16] border-y border-[#1E2A42]">
+      <section className="py-16 lg:py-20 bg-[#060B16] border-y border-[#1E2A42]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#9BA8C0] text-xs tracking-[0.2em] uppercase mb-6">
+          <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.22em] uppercase mb-3">
             Certificazioni pertinenti
           </p>
-          <div className="flex flex-wrap gap-3">
-            {service.certifications.map((cert) => (
-              <span
-                key={cert}
-                className="px-4 py-2 border border-[#C9A84C]/40 text-[#C9A84C] text-sm rounded font-medium"
-              >
-                {cert}
-              </span>
-            ))}
-          </div>
+          <h2 className="font-heading text-3xl text-[#E8EDF5] mb-10 lg:mb-12">
+            STANDARD E QUALIFICHE
+          </h2>
+          <CertificationGrid items={service.certifications} />
         </div>
       </section>
 
       {/* CASE STUDY CORRELATI */}
       {relatedProjects.length > 0 && (
-        <section className="py-20 lg:py-28">
+        <section className="pt-24 pb-20 lg:pt-32 lg:pb-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
+            <div className="mb-14 lg:mb-16">
               <SectionTitle
                 label="Casi reali"
                 title="PROGETTI CORRELATI"

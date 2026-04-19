@@ -5,7 +5,7 @@ export default function InfiniteMarquee() {
   const items = [...PARTNERS, ...PARTNERS];
 
   return (
-    <section className="py-16 border-y border-[#9AD5FF]/20 overflow-hidden bg-[linear-gradient(180deg,#07172D_0%,#0A2240_100%)]">
+    <section className="py-24 lg:py-28 border-y border-[#9AD5FF]/20 overflow-hidden bg-[linear-gradient(180deg,#07172D_0%,#0A2240_100%)]">
       <div className="text-center mb-10">
         <p className="text-[#8FD1FF] text-[10px] tracking-[0.3em] uppercase font-semibold mb-1">
           Hanno scelto CM Impianti

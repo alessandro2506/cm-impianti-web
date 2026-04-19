@@ -12,7 +12,7 @@ const CERT_BADGES = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060C1A] border-t border-[#C9A84C]/10 mt-auto">
+    <footer className="relative mt-auto bg-[#060C1A] border-t border-[#C9A84C]/35 shadow-[inset_0_1px_0_rgba(201,168,76,0.15)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Main grid — 2-col on mobile, 12-col on desktop */}

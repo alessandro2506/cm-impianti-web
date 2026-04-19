@@ -50,3 +50,33 @@ Ripristinare la piena visibilita dei contenuti homepage e allineare l'interfacci
 
 ## Nota design
 Il linguaggio visivo e stato riallineato su un registro premium-tech: forte contrasto, superfici pulite, CTA ad alta evidenza, menu mobile editoriale e leggibilita prioritaria su viewport iPhone.
+
+---
+
+## Aggiornamento UX (stesso mese — iterazione feedback mobile)
+
+### Logo e branding
+- Nuovo componente `HeaderLogo`: icona vettoriale stile marchio (gradiente ciano/blu), wordmark **CM IMPIANTI** e tagline **Performance Technology**.
+- Desktop: logo a sinistra; mobile: hamburger a sinistra, logo centrato con `max-width` per evitare tagli.
+
+### Menu mobile (fix visibilita)
+- Menu reso tramite **React Portal** su `document.body` con `z-index` 200, cosi non resta intrappolato negli stacking context dell’header.
+- Pannello bianco **slide-in da destra** con transizione; backdrop scuro sotto; pulsante chiusura in header drawer.
+- Scroll-to-top portato a `z-40` per non coprire il menu.
+
+### Home: ritmo verticale e CTA
+- Piu spazio tra paragrafo hero e bottoni; margini maggiori tra CTA e griglia KPI.
+- `CtaButton`: padding interno aumentato (`min-h` ~3.75rem, `px-10` / `sm:px-12`).
+- Sezioni **Servizi Core** e **Progetti Landmark**: piu `padding-y` e margine tra le due sezioni.
+- Sezione **Progetti Landmark**: bottone rinominato in **Visione dei progetti** e spostato **sopra** la griglia progetti, con margine generoso.
+
+### Offset per header fisso
+- `main` con padding-top superiore (`pt-[5.75rem]` / `lg:pt-[7.25rem]`) e `scroll-pt` per ancore.
+- Prime sezioni di contatti, certificazioni, progetti, chi-siamo, servizi: `pt` aumentato e `scroll-mt-28` dove serve.
+- Layout servizi e case study: piu padding nel hero per titoli leggibili sotto header.
+
+### Certificazioni (pagine servizio)
+- Sostituito il blocco tag inline con `CertificationGrid`: griglia responsive, card con icone scudo uniformi e testo.
+
+### Footer
+- Separatore superiore piu marcato in oro (`border-t` + `shadow` inset) per staccare il footer dal corpo pagina.

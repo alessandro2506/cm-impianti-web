@@ -28,7 +28,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-end pb-16 overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={cs.heroImage}
@@ -40,7 +40,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/50 to-[#0A0F1E]/20" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 lg:pt-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 lg:pt-24 scroll-mt-28">
           <nav className="flex items-center gap-2 text-xs text-[#9BA8C0] mb-8">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
             <span>/</span>

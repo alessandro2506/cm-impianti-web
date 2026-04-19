@@ -13,7 +13,7 @@ export default function ContattiPage() {
   return (
     <>
       {/* HERO */}
-      <section className="pt-12 lg:pt-16 pb-16">
+      <section className="pt-16 lg:pt-20 pb-16 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             label="Parliamo del tuo progetto"
