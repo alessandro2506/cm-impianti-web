@@ -1,3 +1,4 @@
+// Design System v2 — CM Impianti
 interface SectionTitleProps {
   label?: string;
   title: string;
@@ -17,23 +18,21 @@ export default function SectionTitle({
     <div className={center ? "text-center" : ""}>
       {label && (
         <div className={`inline-flex items-center gap-2 mb-5 ${center ? "justify-center" : ""}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-          <p className="text-blue-400 text-xs font-semibold tracking-[0.22em] uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
+          <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.22em] uppercase">
             {label}
           </p>
         </div>
       )}
       <h2
         className={`font-heading leading-none ${
-          gold
-            ? "text-[#C9A84C]"
-            : "text-white"
+          gold ? "text-[#C9A84C]" : "text-[#F0F4F8]"
         } text-4xl md:text-5xl lg:text-[56px]`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-5 text-[#64748B] text-lg leading-[1.85] ${center ? "mx-auto" : ""} max-w-2xl`}>
+        <p className={`mt-5 text-[#8A9BAD] text-lg leading-[1.85] ${center ? "mx-auto" : ""} max-w-2xl`}>
           {subtitle}
         </p>
       )}

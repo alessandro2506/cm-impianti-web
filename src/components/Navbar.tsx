@@ -1,8 +1,8 @@
+// Design System v2 — CM Impianti
 "use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import LogoSVG from "./LogoSVG";
 import { SITE_CONFIG } from "@/lib/data";
 
 const NAV_LINKS = [
@@ -31,7 +31,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  // Close mobile menu on route change (ESC key)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMobileOpen(false); };
     document.addEventListener("keydown", onKey);
@@ -42,16 +41,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#070D1C]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_40px_rgba(0,0,0,0.5)]"
+          ? "bg-[#0A0F1E]/90 backdrop-blur-xl border-b border-[#C9A84C]/10 shadow-[0_1px_40px_rgba(0,0,0,0.5)]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-20 lg:h-24">
 
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center" aria-label="CM Impianti — Homepage">
-            <LogoSVG width={200} height={60} />
+          {/* Wordmark logo */}
+          <Link href="/" className="flex-shrink-0 flex flex-col leading-none" aria-label="CM Impianti — Homepage">
+            <span className="font-heading text-[22px] text-[#F0F4F8] tracking-[0.06em]">CM IMPIANTI</span>
+            <span className="font-body text-[9px] text-[#8A9BAD] tracking-[0.28em] uppercase mt-0.5">Performance Technology</span>
           </Link>
 
           {/* Desktop nav */}
@@ -64,7 +64,7 @@ export default function Navbar() {
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <button className="flex items-center gap-1.5 text-[#CBD5E1] hover:text-white transition-colors text-sm font-medium tracking-wide py-1">
+                  <button className="nav-link flex items-center gap-1.5 text-[#8A9BAD] hover:text-[#C9A84C] text-sm font-medium tracking-wide py-1">
                     {link.label}
                     <svg
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
@@ -75,25 +75,26 @@ export default function Navbar() {
                   </button>
 
                   {/* Dropdown */}
-                  <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 rounded-2xl overflow-hidden transition-all duration-200 origin-top ${
-                    servicesOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
-                  }`}
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 rounded-2xl overflow-hidden transition-all duration-200 origin-top ${
+                      servicesOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
+                    }`}
                     style={{
-                      background: "rgba(10,15,30,0.95)",
+                      background: "rgba(10,15,30,0.97)",
                       backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(59,130,246,0.1)",
+                      border: "1px solid rgba(201,168,76,0.12)",
+                      boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
                     }}
                   >
                     {link.children.map((child, i) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className={`flex items-center gap-3 px-5 py-3.5 text-sm text-[#CBD5E1] hover:text-white hover:bg-white/[0.06] transition-all ${
-                          i < link.children.length - 1 ? "border-b border-white/[0.05]" : ""
+                        className={`flex items-center gap-3 px-5 py-3.5 text-sm text-[#8A9BAD] hover:text-[#F0F4F8] hover:bg-white/[0.04] transition-all ${
+                          i < link.children.length - 1 ? "border-b border-[#C9A84C]/08" : ""
                         }`}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]/60 flex-shrink-0" />
                         {child.label}
                       </Link>
                     ))}
@@ -103,7 +104,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[#CBD5E1] hover:text-white transition-colors text-sm font-medium tracking-wide"
+                  className="nav-link text-[#8A9BAD] hover:text-[#C9A84C] text-sm font-medium tracking-wide"
                 >
                   {link.label}
                 </Link>
@@ -118,7 +119,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp CM Impianti"
-              className="text-[#64748B] hover:text-[#25D366] transition-colors p-2"
+              className="text-[#8A9BAD] hover:text-[#25D366] transition-colors p-2"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -127,27 +128,26 @@ export default function Navbar() {
             </a>
             <Link
               href="/contatti"
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white font-semibold text-sm tracking-wide transition-all duration-200 shadow-lg shadow-blue-700/30 hover:shadow-blue-600/40 hover:scale-[1.03]"
+              className="px-5 py-2.5 rounded-full border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E] font-semibold text-sm tracking-wide transition-all duration-200 hover:scale-[1.03]"
             >
               Richiedi Preventivo
             </Link>
           </div>
 
-          {/* Hamburger — minimal 3 thin lines */}
+          {/* Hamburger — 2 lines → X morph */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-xl hover:bg-white/5 transition-colors"
+            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[7px] rounded-xl hover:bg-white/5 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileOpen}
           >
-            <span className={`block w-5 h-[1.5px] bg-[#CBD5E1] transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
-            <span className={`block h-[1.5px] bg-[#CBD5E1] transition-all duration-300 ${mobileOpen ? "w-0 opacity-0" : "w-5"}`} />
-            <span className={`block w-5 h-[1.5px] bg-[#CBD5E1] transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+            <span className={`block w-5 h-[1.5px] bg-[#F0F4F8] transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[4.25px]" : ""}`} />
+            <span className={`block w-5 h-[1.5px] bg-[#F0F4F8] transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[4.25px]" : ""}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu — SaaS clean */}
+      {/* Mobile menu */}
       <div
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
           mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
@@ -156,9 +156,9 @@ export default function Navbar() {
         <div
           className="mx-4 mb-4 rounded-2xl overflow-hidden"
           style={{
-            background: "rgba(8,14,28,0.97)",
+            background: "rgba(10,15,30,0.97)",
             backdropFilter: "blur(20px)",
-            border: "1px solid rgba(255,255,255,0.07)",
+            border: "1px solid rgba(201,168,76,0.12)",
             boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
           }}
         >
@@ -167,7 +167,7 @@ export default function Navbar() {
               <div key={link.href}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-[#CBD5E1] hover:text-white hover:bg-white/[0.06] transition-all text-sm font-medium"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-[#8A9BAD] hover:text-[#F0F4F8] hover:bg-white/[0.04] transition-all text-sm font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -178,10 +178,10 @@ export default function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[#64748B] hover:text-[#CBD5E1] hover:bg-white/[0.04] transition-all text-sm"
+                        className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[#8A9BAD]/70 hover:text-[#F0F4F8] hover:bg-white/[0.04] transition-all text-sm"
                         onClick={() => setMobileOpen(false)}
                       >
-                        <span className="w-1 h-1 rounded-full bg-blue-500/70 flex-shrink-0" />
+                        <span className="w-1 h-1 rounded-full bg-[#C9A84C]/60 flex-shrink-0" />
                         {child.label}
                       </Link>
                     ))}
@@ -194,7 +194,7 @@ export default function Navbar() {
           <div className="px-4 pb-4">
             <Link
               href="/contatti"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-blue-700/30"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-full border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E] font-semibold text-sm tracking-wide transition-all"
               onClick={() => setMobileOpen(false)}
             >
               Richiedi Preventivo

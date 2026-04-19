@@ -1,124 +1,112 @@
+/* Design System v2 — CM Impianti */
 @import "tailwindcss";
 
+/* ─── Design tokens ─────────────────────────────────── */
 @theme {
-  --color-navy: #0A0F1E;
-  --color-navy-light: #141B2E;
-  --color-gold: #C9A84C;
-  --color-gold-light: #D4B870;
-  --color-text: #E8EDF5;
-  --color-text-muted: #9BA8C0;
-  --color-surface: #111827;
-  --color-border: #1E2A42;
+  --color-navy:        #0A0F1E;
+  --color-navy-mid:    #111827;
+  --color-navy-light:  #1C2A3A;
+  --color-gold:        #C9A84C;
+  --color-gold-light:  #E2B96A;
+  --color-white:       #F0F4F8;
+  --color-muted:       #8A9BAD;
+  --color-border:      rgba(201,168,76,0.15);
+  --color-surface:     rgba(255,255,255,0.03);
 
   --font-heading: var(--font-bebas);
-  --font-body: var(--font-inter);
+  --font-body:    var(--font-inter);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ─── Reset & base ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: #0A0F1E;
-  color: #E8EDF5;
-  font-family: var(--font-inter), Arial, sans-serif;
+  color: #F0F4F8;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.7;
-  font-size: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-bebas), Arial, sans-serif;
-  letter-spacing: 0.05em;
-  line-height: 1.05;
+  font-family: var(--font-bebas), 'Arial Black', sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
-p {
-  line-height: 1.8;
+p { line-height: 1.8; }
+
+::selection { background: #C9A84C; color: #0A0F1E; }
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0F1E; }
+::-webkit-scrollbar-thumb { background: #C9A84C40; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+
+/* ─── Animated nav-link underline (gold) ─────────────── */
+.nav-link {
+  background: linear-gradient(#C9A84C, #C9A84C) bottom / 0% 1px no-repeat;
+  transition: background-size 0.3s ease, color 0.2s;
+  padding-bottom: 2px;
+}
+.nav-link:hover { background-size: 100% 1px; color: #C9A84C; }
+
+/* ─── Reveal on scroll ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-::selection {
-  background-color: #3B82F6;
-  color: #fff;
+/* Stagger children */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
+.reveal-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+.reveal-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.reveal-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0F1E;
-}
-::-webkit-scrollbar-thumb {
-  background: #1E3A6E;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
-}
-
-/* ─── Background gradient blobs ─── */
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.blob-cyan {
-  background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
-}
-
-.blob-blue {
-  background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
-}
-
-.blob-indigo {
-  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
-}
-
-/* ─── Section wrapper with overflow guard ─── */
-.section-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-/* ─── Glass card ─── */
+/* ─── Glass surface ──────────────────────────────────── */
 .glass {
   background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.07);
-  box-shadow: 0 4px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
-/* ─── Infinite marquee animation ─── */
+/* ─── Noise texture overlay ──────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* ─── Infinite marquee ───────────────────────────────── */
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-
 .marquee-track {
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
   width: max-content;
 }
+.marquee-track:hover { animation-play-state: paused; }
 
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-/* ─── Fade up entrance ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.fade-up {
-  animation: fadeUp 0.6s ease forwards;
-}
+/* ─── Utility ────────────────────────────────────────── */
+.section-bg { position: relative; overflow: hidden; }
