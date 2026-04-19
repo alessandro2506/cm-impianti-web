@@ -238,15 +238,65 @@ export const CERTIFICATIONS = [
   { name: "Piping Systems per Navi da Crociera", ente: "Bureau Veritas", year: "2009", area: "navale" },
 ];
 
-export const PARTNERS = [
-  { name: "Fincantieri", logo: null },
-  { name: "MSC Crociere", logo: null },
-  { name: "Silversea Cruises", logo: null },
-  { name: "Cunard Line", logo: null },
-  { name: "FIAT S.p.A.", logo: null },
-  { name: "RFI — Rete Ferroviaria Italiana", logo: null },
-  { name: "V.Ships", logo: null },
-  { name: "NCA", logo: null },
-  { name: "Callemberg Group", logo: null },
-  { name: "Green Stream", logo: null },
+export const PARTNERS: { name: string; logo: string | null; width: number; height: number }[] = [
+  {
+    name: "Fincantieri",
+    width: 140,
+    height: 28,
+    logo: `<svg viewBox="0 0 280 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Fincantieri"><rect x="0" y="14" width="8" height="16" rx="1"/><rect x="11" y="8" width="8" height="28" rx="1"/><rect x="22" y="14" width="8" height="16" rx="1"/><text x="38" y="30" font-family="Arial" font-weight="700" font-size="20" letter-spacing="1">FINCANTIERI</text></svg>`,
+  },
+  {
+    name: "MSC Crociere",
+    width: 100,
+    height: 28,
+    logo: `<svg viewBox="0 0 140 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="MSC Crociere"><text x="0" y="34" font-family="Arial" font-weight="900" font-size="36" letter-spacing="2">MSC</text></svg>`,
+  },
+  {
+    name: "Silversea Cruises",
+    width: 130,
+    height: 28,
+    logo: `<svg viewBox="0 0 200 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Silversea Cruises"><text x="0" y="30" font-family="Georgia,serif" font-weight="400" font-size="22" letter-spacing="3">SILVERSEA</text></svg>`,
+  },
+  {
+    name: "Cunard",
+    width: 100,
+    height: 28,
+    logo: `<svg viewBox="0 0 140 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Cunard Line"><text x="0" y="30" font-family="Georgia,serif" font-weight="700" font-size="24" letter-spacing="2">CUNARD</text></svg>`,
+  },
+  {
+    name: "Fiat",
+    width: 60,
+    height: 28,
+    logo: `<svg viewBox="0 0 80 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="FIAT"><text x="0" y="34" font-family="Arial" font-weight="900" font-size="34" letter-spacing="2">FIAT</text></svg>`,
+  },
+  {
+    name: "RFI",
+    width: 80,
+    height: 28,
+    logo: `<svg viewBox="0 0 100 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="RFI Rete Ferroviaria Italiana"><rect x="0" y="10" width="32" height="24" rx="3"/><text x="4" y="28" font-family="Arial" font-weight="900" font-size="18" fill="white">RFI</text><text x="40" y="20" font-family="Arial" font-weight="400" font-size="9" fill="currentColor">Rete Ferroviaria</text><text x="40" y="32" font-family="Arial" font-weight="400" font-size="9" fill="currentColor">Italiana</text></svg>`,
+  },
+  {
+    name: "V.Ships",
+    width: 90,
+    height: 28,
+    logo: `<svg viewBox="0 0 120 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="V.Ships"><text x="0" y="34" font-family="Arial" font-weight="900" font-size="30" letter-spacing="1">V.</text><text x="36" y="34" font-family="Arial" font-weight="400" font-size="26" letter-spacing="1">Ships</text></svg>`,
+  },
+  {
+    name: "Bureau Veritas",
+    width: 130,
+    height: 28,
+    logo: `<svg viewBox="0 0 200 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Bureau Veritas"><rect x="0" y="8" width="28" height="28" rx="14"/><text x="6" y="28" font-family="Arial" font-weight="900" font-size="16" fill="white">BV</text><text x="36" y="22" font-family="Arial" font-weight="700" font-size="12" letter-spacing="0.5">BUREAU</text><text x="36" y="36" font-family="Arial" font-weight="400" font-size="11" letter-spacing="0.5">VERITAS</text></svg>`,
+  },
+  {
+    name: "Callemberg Group",
+    width: 140,
+    height: 28,
+    logo: `<svg viewBox="0 0 200 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Callemberg Group"><text x="0" y="30" font-family="Arial" font-weight="700" font-size="20" letter-spacing="1">CALLEMBERG</text></svg>`,
+  },
+  {
+    name: "Green Stream",
+    width: 130,
+    height: 28,
+    logo: `<svg viewBox="0 0 190 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Green Stream"><text x="0" y="30" font-family="Arial" font-weight="600" font-size="20" letter-spacing="1">GREEN STREAM</text></svg>`,
+  },
 ];

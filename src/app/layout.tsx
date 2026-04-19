@@ -61,7 +61,7 @@ export default function RootLayout({
     <html lang="it" className={`${inter.variable} ${bebas.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#0A0F1E] text-[#E8EDF5]">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-20 lg:pt-24">{children}</main>
         <Footer />
         <CookieBanner />
         <ScrollToTop />

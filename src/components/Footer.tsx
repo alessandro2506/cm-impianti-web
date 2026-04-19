@@ -15,15 +15,21 @@ export default function Footer() {
     <footer className="bg-[#060C1A] border-t border-[#C9A84C]/10 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Main grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pt-16 pb-10">
+        {/* Main grid — 2-col on mobile, 12-col on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-10">
 
-          {/* Brand col — spans 4 */}
-          <div className="lg:col-span-4">
-            {/* Wordmark */}
-            <div className="flex flex-col leading-none mb-5">
-              <span className="font-heading text-[20px] text-[#F0F4F8] tracking-[0.06em]">CM IMPIANTI</span>
-              <span className="font-body text-[9px] text-[#8A9BAD] tracking-[0.28em] uppercase mt-0.5">Performance Technology</span>
+          {/* Brand col — full width on mobile (col-span-2), 4 cols on desktop */}
+          <div className="col-span-2 lg:col-span-4">
+            {/* Wordmark with gold glyph */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-[3px] h-7">
+                <div className="w-[3px] h-full bg-[#C9A84C] rounded-full" />
+                <div className="w-[3px] h-[60%] bg-[#C9A84C]/50 rounded-full" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-heading text-[22px] text-[#F0F4F8] tracking-[0.08em] leading-none">CM IMPIANTI</span>
+                <span className="font-body text-[8px] text-[#C9A84C]/70 tracking-[0.28em] uppercase mt-[3px]">Performance Technology</span>
+              </div>
             </div>
             <p className="text-[#8A9BAD] text-sm leading-relaxed max-w-xs">
               30 anni di eccellenza nell'impiantistica navale e industriale. Certificati Bureau Veritas. Partner Fincantieri, MSC Crociere, Silversea, Cunard.
@@ -53,7 +59,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Servizi — spans 2 */}
+          {/* Servizi — 1 col on mobile (auto), 2 cols on desktop */}
           <div className="lg:col-span-2">
             <h3 className="text-[#C9A84C] font-semibold text-xs tracking-[0.18em] uppercase mb-5">Servizi</h3>
             <ul className="space-y-3">
@@ -64,7 +70,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Azienda — spans 2 */}
+          {/* Azienda — 1 col on mobile, 2 cols on desktop */}
           <div className="lg:col-span-2">
             <h3 className="text-[#C9A84C] font-semibold text-xs tracking-[0.18em] uppercase mb-5">Azienda</h3>
             <ul className="space-y-3">
@@ -74,8 +80,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contatti — spans 4 */}
-          <div className="lg:col-span-4">
+          {/* Contatti — full width on mobile (col-span-2), 4 cols on desktop */}
+          <div className="col-span-2 lg:col-span-4">
             <h3 className="text-[#C9A84C] font-semibold text-xs tracking-[0.18em] uppercase mb-5">Contatti</h3>
             <div className="space-y-5">
               <div>
@@ -99,7 +105,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Cert badges row */}
+        {/* Cert badges */}
         <div className="py-6 border-t border-[#C9A84C]/10">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-[#8A9BAD] text-xs mr-2">Certificazioni:</span>

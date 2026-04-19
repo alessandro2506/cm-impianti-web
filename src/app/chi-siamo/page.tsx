@@ -25,7 +25,7 @@ export default function ChiSiamoPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-12 lg:pt-16 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://www.cmimpianti.info/wp-content/uploads/2021/03/Senza-titolo-3.jpg"

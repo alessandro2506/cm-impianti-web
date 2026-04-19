@@ -18,8 +18,8 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO — 2-col asymmetric ─── */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-        {/* Full-bleed image on right half */}
+      <section className="relative min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] flex flex-col justify-center overflow-hidden">
+        {/* Full-bleed image */}
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%]">
             <Image
@@ -31,13 +31,15 @@ export default function HomePage() {
               sizes="(max-width: 1024px) 100vw, 55vw"
             />
           </div>
-          {/* Left navy overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E] via-[#0A0F1E]/90 lg:via-[#0A0F1E]/85 to-transparent" />
+          {/* Left overlay — stronger for readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E] from-[40%] via-[#0A0F1E]/80 to-[#0A0F1E]/40" />
+          {/* Mobile full overlay */}
+          <div className="absolute inset-0 bg-[#0A0F1E]/60 lg:hidden" />
           {/* Bottom fade */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full pt-28 pb-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full py-12 lg:py-16">
           {/* Text column — 55% */}
           <div className="lg:w-[55%] xl:w-[50%]">
             {/* Pill badge */}
@@ -54,10 +56,14 @@ export default function HomePage() {
               <span className="text-[#F0F4F8]/60">{"& INDUSTRIALE"}</span>
             </h1>
 
-            <p className="text-[#8A9BAD] text-lg lg:text-xl leading-[1.9] mb-10 max-w-lg">
-              30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
-              Certificati Bureau Veritas. Contractor navale di fiducia.
-            </p>
+            {/* Text with mobile readability protection */}
+            <div className="relative mb-10">
+              <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
+              <p className="relative text-[#8A9BAD] text-lg lg:text-xl leading-[1.9] max-w-lg">
+                30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
+                Certificati Bureau Veritas. Contractor navale di fiducia.
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4 mb-16 lg:mb-20">
               <CtaButton href="/contatti" variant="primary">
@@ -79,7 +85,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll cue */}
-        <div className="relative z-10 flex flex-col items-center gap-2 opacity-40 mt-10 mb-8">
+        <div className="relative z-10 flex flex-col items-center gap-2 opacity-40 mt-6 mb-8">
           <div className="w-px h-8 bg-gradient-to-b from-transparent to-[#C9A84C]/40" />
           <svg className="w-4 h-4 text-[#C9A84C]/60 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
@@ -250,9 +256,7 @@ export default function HomePage() {
 
       {/* ─── CTA — 2-col with image right + noise texture ─── */}
       <section className="relative section-bg noise py-28 lg:py-40 overflow-hidden">
-        {/* Navy background */}
         <div className="absolute inset-0 bg-[#0A0F1E]" />
-        {/* Gold radial glow left */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.06]"
           style={{ background: "radial-gradient(circle, #C9A84C, transparent 70%)" }} />
 
@@ -277,7 +281,7 @@ export default function HomePage() {
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Buongiorno, vorrei informazioni sui vostri servizi`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/10 rounded-full font-semibold text-sm tracking-wide transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/10 rounded-full font-semibold text-[15px] tracking-wide transition-all duration-200"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -298,7 +302,6 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-tl from-[#0A0F1E]/60 via-transparent to-transparent" />
-              {/* Gold corner accent */}
               <div className="absolute top-4 left-4 w-12 h-1 bg-[#C9A84C] rounded-full" />
               <div className="absolute top-4 left-4 w-1 h-12 bg-[#C9A84C] rounded-full" />
             </div>

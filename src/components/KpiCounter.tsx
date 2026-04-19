@@ -25,7 +25,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
           }, duration / steps);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0, rootMargin: "-100px" }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
