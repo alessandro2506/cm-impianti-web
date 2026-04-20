@@ -5,14 +5,14 @@ import HeaderLogo from "@/components/HeaderLogo";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-auto w-full min-w-0 bg-[#00172d]">
+    <footer className="relative mt-24 w-full min-w-0 bg-[#00172d]">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/85 to-transparent"
         aria-hidden
       />
       <div className="border-t border-[#C9A84C]/25 shadow-[inset_0_1px_0_rgba(201,168,76,0.12)]">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="py-14 sm:py-16 lg:py-20">
+          <div className="pb-14 pt-20 sm:pb-16 sm:pt-24 lg:pb-20 lg:pt-28">
             <div className="flex justify-center lg:justify-start">
               <HeaderLogo className="max-w-none" />
             </div>

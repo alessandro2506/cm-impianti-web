@@ -202,13 +202,10 @@ export default function Navbar() {
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-10">
         <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
-          {/* Bilanciamento mobile a sinistra */}
-          <div className="w-12 shrink-0 lg:hidden" aria-hidden />
-
-          {/* Mobile: hamburger a destra */}
+          {/* Mobile: hamburger ancorato a destra */}
           <button
             type="button"
-            className="relative z-[60] ml-auto flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[6px] rounded-2xl border border-[#D7E7F7] bg-white text-[#0A2240] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all lg:ml-0 lg:hidden"
+            className="absolute right-0 top-1/2 z-[60] flex h-12 w-12 -translate-y-1/2 flex-col items-center justify-center gap-[6px] rounded-2xl border border-[#D7E7F7] bg-white text-[#0A2240] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all lg:hidden"
             onClick={() => (mobileOpen ? closeMobileMenu() : setMobileOpen(true))}
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileOpen}

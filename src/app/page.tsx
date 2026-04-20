@@ -48,7 +48,7 @@ export default function HomePage() {
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="mb-5 font-heading text-5xl leading-[0.97] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+            <h1 className="mb-5 font-heading text-4xl leading-[1] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               IMPIANTISTICA
               <br />
               <span className="text-[#4DB8FF]">NAVALE</span>
@@ -59,7 +59,7 @@ export default function HomePage() {
             {/* Text with mobile readability protection */}
             <div className="relative mb-14 sm:mb-16">
               <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
-              <p className="relative max-w-xl text-base leading-[1.75] text-slate-100 lg:text-lg">
+              <p className="relative max-w-xl text-sm leading-[1.75] text-slate-100 sm:text-base lg:text-[1.05rem]">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
                 Certificati Bureau Veritas. Contractor navale di fiducia.
               </p>

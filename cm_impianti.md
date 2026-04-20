@@ -98,3 +98,16 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
   - griglia base `grid-cols-2` (quindi `Servizi` e `Azienda` sempre una accanto all’altra),
   - sezione `Contatti` in `col-span-2` per bilanciamento su tutta la larghezza,
   - spacing orizzontale/verticale aumentato per mantenere aria su mobile e desktop.
+
+## 11. Correzioni Strutturali Finali (Apr 2026)
+
+- **Hamburger mobile**: pulsante ancorato in modo assoluto al lato destro dell’header (`right-0`, `top-1/2`) per evitare regressioni di allineamento.
+- **Footer spacing**:
+  - separazione netta dall’ultima sezione con `mt-24`,
+  - spazio extra tra linea dorata e logo (`pt-20` mobile, `pt-24/28` da tablet/desktop).
+- **Usabilità slider servizi**:
+  - rimossa la forzatura `touch-action: pan-x` nel carosello, così lo scroll verticale pagina resta sempre disponibile mentre il dito/mouse è sull’area slider.
+- **Visibilità e clipping**:
+  - rimossa la regola `overflow: hidden` dal contenitore `.section-bg` per ridurre il rischio di tagli o occultamenti involontari.
+- **Riduzione scala hero**:
+  - titolo e testo descrittivo homepage ulteriormente ridotti su mobile/desktop per mantenere proporzioni istituzionali e prevenire sovrapposizioni.
