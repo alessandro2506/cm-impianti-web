@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="it" className={`${inter.variable} ${mono.variable} h-full w-full`}>
       <body className="flex min-h-screen w-full min-w-0 flex-col bg-[#001a33] text-[#F8FAFC]">
         <Navbar />
-        <main className="min-h-0 w-full flex-1 scroll-pt-28 pt-24 sm:pt-[6rem] lg:scroll-pt-32 lg:pt-[7.75rem]">{children}</main>
+        <main className="min-h-0 w-full flex-1 scroll-pt-32 pt-[7.25rem] sm:pt-[7.5rem] lg:scroll-pt-36 lg:pt-[8.5rem]">{children}</main>
         <Footer />
         <CookieBanner />
         <ScrollToTop />

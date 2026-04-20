@@ -48,7 +48,7 @@ export default function HomePage() {
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="mb-6 font-heading text-6xl leading-[0.94] text-white sm:text-7xl lg:text-8xl xl:text-[96px]">
+            <h1 className="mb-5 font-heading text-5xl leading-[0.97] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
               IMPIANTISTICA
               <br />
               <span className="text-[#4DB8FF]">NAVALE</span>
@@ -57,15 +57,15 @@ export default function HomePage() {
             </h1>
 
             {/* Text with mobile readability protection */}
-            <div className="relative mb-12 sm:mb-14">
+            <div className="relative mb-14 sm:mb-16">
               <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
-              <p className="relative max-w-xl text-lg leading-[1.75] text-slate-100 lg:text-xl">
+              <p className="relative max-w-xl text-base leading-[1.75] text-slate-100 lg:text-lg">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
                 Certificati Bureau Veritas. Contractor navale di fiducia.
               </p>
             </div>
 
-            <div className="mt-2 flex flex-wrap gap-4 mb-20 sm:mb-24 lg:mb-28">
+            <div className="mb-20 mt-4 flex flex-wrap gap-4 sm:mb-24 lg:mb-28">
               <CtaButton href="/contatti" variant="primary">
                 Richiedi Preventivo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,7 +177,7 @@ export default function HomePage() {
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Buongiorno, vorrei informazioni sui vostri servizi`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 min-h-[3.75rem] px-10 py-5 sm:px-12 border border-[#77DCA1] bg-[#E8F9EE] text-[#14984A] hover:bg-[#DDF6E7] rounded-full font-semibold text-[18px] sm:text-[19px] leading-tight tracking-[-0.01em] transition-all duration-200"
+                  className="inline-flex min-h-[3.5rem] items-center justify-center gap-2 rounded-full border border-[#77DCA1] bg-[#E8F9EE] px-8 py-3.5 text-base font-semibold leading-tight tracking-[-0.01em] text-[#14984A] transition-all duration-200 hover:bg-[#DDF6E7] sm:min-h-[3.75rem] sm:px-10 sm:py-4 sm:text-[17px]"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />

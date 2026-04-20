@@ -81,3 +81,20 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
   - titoli in sans-serif moderno (`Inter`) con tracking più ampio,
   - microtesti tecnici (date timeline, label, metadati) con classe `.font-technical` basata su font mono (`Roboto Mono`),
   - paragrafi descrittivi in peso leggero (`font-weight: 300`) per maggiore eleganza e leggibilità.
+
+## 10. Stabilizzazione Layout & Font Scale (Apr 2026)
+
+- **Offset fisso sotto navbar**:
+  - `main` con top padding aumentato (`pt-[7.25rem]` mobile, `sm:pt-[7.5rem]`, `lg:pt-[8.5rem]`) e `scroll-pt` coerente per evitare qualunque sovrapposizione hero/header.
+- **Hero homepage**:
+  - distanza aumentata tra testo descrittivo e blocco CTA (`mb` più ampio sul paragrafo + `mt` CTA) per eliminare overlap su viewport strette.
+- **Scala tipografica ridotta (globale)**:
+  - base body ridotta (`0.95rem`) con line-height più contenuta,
+  - `SectionTitle` ridimensionato (`text-3xl`/`text-4xl`/`text-5xl`),
+  - sottotitoli/descrizioni riportati su `text-sm`/`text-base`.
+- **Bottoni CTA**:
+  - standard interno con padding generoso e coerente (`px-8 py-3.5` mobile, `sm:px-10 sm:py-4`) per evitare testo a contatto con i bordi.
+- **Footer colonne affiancate**:
+  - griglia base `grid-cols-2` (quindi `Servizi` e `Azienda` sempre una accanto all’altra),
+  - sezione `Contatti` in `col-span-2` per bilanciamento su tutta la larghezza,
+  - spacing orizzontale/verticale aumentato per mantenere aria su mobile e desktop.
