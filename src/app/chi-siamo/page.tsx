@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import CtaButton from "@/components/CtaButton";
+import CompanyTimeline from "@/components/CompanyTimeline";
 import { SITE_CONFIG, PARTNERS } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -11,14 +12,54 @@ export const metadata: Metadata = {
 };
 
 const TIMELINE = [
-  { year: "1993", event: "Fondazione CM Impianti a Palermo. Primi lavori di carpenteria navale." },
-  { year: "2005", event: "Qualifica ufficiale Fincantieri. Inizio collaborazioni con cantieri internazionali." },
-  { year: "2006", event: "Progetto landmark: allungamento MSC da 251m a 275m a Palermo." },
-  { year: "2008", event: "Oleodotto Gela: primo grande intervento industriale petrolchimico." },
-  { year: "2010", event: "Certificazioni Bureau Veritas complete. Refitting Noordam (Holland America)." },
-  { year: "2017", event: "Queen Victoria Restyling — Fincantieri. Rapporto con Cunard Line." },
-  { year: "2018", event: "Silver Spirit: allungamento + piping completo per Silversea Cruises." },
-  { year: "2023+", event: "Consolidamento posizione come contractor navale di riferimento in Sicilia." },
+  {
+    year: "1993",
+    title: "Fondazione a Palermo",
+    description:
+      "Nasce CM Impianti. Primi interventi di carpenteria e impiantistica navale.",
+  },
+  {
+    year: "2005",
+    title: "Qualifica Fincantieri",
+    description:
+      "Ingresso ufficiale nella filiera cantieristica con commesse a respiro internazionale.",
+  },
+  {
+    year: "2006",
+    title: "Allungamento MSC",
+    description:
+      "Intervento landmark a Palermo: nave estesa da 251m a 275m con lavorazioni integrate.",
+  },
+  {
+    year: "2008",
+    title: "Oleodotto Gela",
+    description:
+      "Primo progetto industriale petrolchimico di grande scala, con piping e coordinamento multi-team.",
+  },
+  {
+    year: "2010",
+    title: "Certificazioni complete",
+    description:
+      "Consolidamento Bureau Veritas e refitting Noordam per Holland America.",
+  },
+  {
+    year: "2017",
+    title: "Queen Victoria Restyling",
+    description:
+      "Nuovo step nel rapporto con Cunard Line su commesse ad alto standard tecnico.",
+  },
+  {
+    year: "2018",
+    title: "Silver Spirit",
+    description:
+      "Allungamento nave e piping completo per Silversea Cruises in finestra dry dock.",
+  },
+  {
+    year: "2023+",
+    title: "Contractor di riferimento",
+    description:
+      "CM Impianti consolida il ruolo strategico per navale e industriale in Sicilia.",
+  },
 ];
 
 export default function ChiSiamoPage() {
@@ -127,34 +168,17 @@ export default function ChiSiamoPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="py-20 lg:py-28 bg-[#060B16]">
+      <section className="py-20 lg:py-28 bg-[linear-gradient(180deg,#001a33_0%,#001a33_55%,#00172d_100%)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <SectionTitle label="La nostra storia" title="TRENT'ANNI DI CANTIERE" center />
+          <div className="mb-10 text-center sm:mb-14">
+            <SectionTitle
+              label="La nostra storia"
+              title="TRENT'ANNI DI CANTIERE"
+              subtitle="Scorri la timeline per seguire l'evoluzione di CM Impianti."
+              center
+            />
           </div>
-          <div className="relative">
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-[#1E2A42]" />
-            <div className="space-y-8">
-              {TIMELINE.map((item, i) => (
-                <div
-                  key={item.year}
-                  className={`relative flex items-start gap-8 lg:gap-0 ${
-                    i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  }`}
-                >
-                  <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-[#C9A84C] rounded-full -translate-x-1/2 mt-1" />
-                  <div
-                    className={`ml-12 lg:ml-0 lg:w-1/2 ${
-                      i % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16"
-                    }`}
-                  >
-                    <div className="font-heading text-3xl text-[#C9A84C] mb-2">{item.year}</div>
-                    <p className="text-[#9BA8C0] text-sm leading-relaxed">{item.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CompanyTimeline items={TIMELINE} />
         </div>
       </section>
 

@@ -47,3 +47,37 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 
 - `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`
 - `src/components/HeaderLogo.tsx`, `Navbar.tsx`, `Footer.tsx`, `InfiniteMarquee.tsx`, `SectionTitle.tsx`, `KpiCounter.tsx`
+
+## 8. Restyle Chi Siamo — Timeline Usability (Apr 2026)
+
+- **Sfondo globale Blu Oceano**: base aggiornata a `#001a33` con gradienti coerenti, senza stacchi netti tra contenuto, header e footer.
+- **Timeline orizzontale touch-first** nella pagina `chi-siamo`:
+  - dati storici CM (1993, 2005, 2006, 2008, 2010, 2017, 2018, 2023+),
+  - cards con `snap-x`, scrolling fluido su mobile e desktop,
+  - linea temporale sottile e indicatori minimali in stile tecnico.
+- **Tipografia timeline**:
+  - data in **font monospace** con tracking tecnico,
+  - titolo evento in bold,
+  - descrizione sotto con larghezza controllata (`max-width` in caratteri) per andare a capo in modo netto e incolonnato.
+- **Indicatore di slide (chevron destro)**:
+  - freccia sottile con animazione laterale “pulse”,
+  - fade-out automatico quando l’utente inizia lo scroll orizzontale.
+- **Fade-in pulito**: card timeline con animazione `fade-in-up` a comparsa progressiva.
+
+## 9. Footer & Typography Standard (Apr 2026)
+
+- **Footer stile Fincantieri (tutte le pagine)**:
+  - mantenere linea oro superiore sottile e nitida,
+  - grande spazio verticale tra linea e logo (`py-14` / `sm:py-16` / `lg:py-20`),
+  - layout a griglia arioso con blocchi Servizi, Azienda e Contatti,
+  - bottom footer minimale con link legali piccoli e distanziati (Privacy, Cookie, Note Legali).
+- **Respiro mobile**:
+  - nessun ammasso verticale, gap consistenti su blocchi e colonne,
+  - allineamento leggibile e progressivo da 1 colonna a 4 colonne su desktop.
+- **Palette testo globale**:
+  - colore testo principale in **Bianco Ghiaccio `#F8FAFC`**,
+  - grigi chiari/opachi per metadati e testo secondario.
+- **Tipografia globale**:
+  - titoli in sans-serif moderno (`Inter`) con tracking più ampio,
+  - microtesti tecnici (date timeline, label, metadati) con classe `.font-technical` basata su font mono (`Roboto Mono`),
+  - paragrafi descrittivi in peso leggero (`font-weight: 300`) per maggiore eleganza e leggibilità.

@@ -19,7 +19,7 @@ export default function SectionTitle({
       {label && (
         <div className={`inline-flex items-center gap-2 mb-5 ${center ? "justify-center" : ""}`}>
           <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-          <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.22em] uppercase">
+          <p className="font-technical text-[#C9A84C] text-xs font-medium tracking-[0.22em] uppercase">
             {label}
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function SectionTitle({
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-5 text-lg leading-[1.85] text-slate-200 ${center ? "mx-auto" : ""} max-w-2xl`}>
+        <p className={`mt-5 max-w-2xl text-lg leading-[1.9] text-slate-100 ${center ? "mx-auto" : ""}`}>
           {subtitle}
         </p>
       )}

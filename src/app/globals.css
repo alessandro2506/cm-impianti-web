@@ -8,12 +8,12 @@
   --color-navy-light:  #1C2A3A;
   --color-gold:        #C9A84C;
   --color-gold-light:  #E2B96A;
-  --color-white:       #F0F4F8;
+  --color-white:       #F8FAFC;
   --color-muted:       #8A9BAD;
   --color-border:      rgba(201,168,76,0.15);
   --color-surface:     rgba(255,255,255,0.03);
 
-  --font-heading: var(--font-bebas);
+  --font-heading: var(--font-inter);
   --font-body:    var(--font-inter);
 }
 
@@ -28,8 +28,8 @@ html {
 body {
   width: 100%;
   min-width: 0;
-  background-color: #0A0F1E;
-  color: #F0F4F8;
+  background-color: #001a33;
+  color: #F8FAFC;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.75;
@@ -37,25 +37,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Mesh soft SaaS — profondità senza appesantire */
   background-image:
-    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(56, 189, 248, 0.14), transparent 55%),
-    radial-gradient(ellipse 90% 60% at 90% 20%, rgba(59, 130, 246, 0.1), transparent 50%),
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(14, 165, 233, 0.06), transparent 45%);
+    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(56, 189, 248, 0.17), transparent 56%),
+    radial-gradient(ellipse 90% 60% at 92% 20%, rgba(37, 99, 235, 0.12), transparent 52%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(14, 165, 233, 0.07), transparent 46%);
   background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-bebas), 'Arial Black', sans-serif;
-  letter-spacing: 0.04em;
-  line-height: 1;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
 }
 
-p { line-height: 1.8; }
+p {
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.font-technical {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 ::selection { background: #C9A84C; color: #0A0F1E; }
 
 /* ─── Scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 5px; }
-::-webkit-scrollbar-track { background: #0A0F1E; }
+::-webkit-scrollbar-track { background: #001a33; }
 ::-webkit-scrollbar-thumb { background: #C9A84C40; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
 
@@ -138,6 +145,50 @@ p { line-height: 1.8; }
   will-change: transform;
 }
 .marquee-track:hover { animation-play-state: paused; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+@keyframes timelineHint {
+  0%,
+  100% {
+    transform: translate3d(0, -50%, 0);
+  }
+  50% {
+    transform: translate3d(4px, -50%, 0);
+  }
+}
+
+.timeline-hint {
+  animation: timelineHint 1.25s ease-in-out infinite;
+}
+
+@keyframes carouselHint {
+  0%,
+  100% {
+    transform: translate3d(0, -50%, 0);
+  }
+  50% {
+    transform: translate3d(5px, -50%, 0);
+  }
+}
+
+.carousel-hint {
+  animation: carouselHint 1.2s ease-in-out infinite;
+}
 
 /* ─── Utility ────────────────────────────────────────── */
 .section-bg { position: relative; overflow: hidden; }

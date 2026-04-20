@@ -25,8 +25,13 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24);
@@ -65,7 +70,7 @@ export default function Navbar() {
           type="button"
           className="absolute inset-0 z-0 bg-[#041225]/60 backdrop-blur-sm"
           aria-label="Chiudi menu"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMobileMenu}
         />
         <aside
           className={`absolute top-0 right-0 z-10 flex h-full w-full max-w-[min(100%,420px)] flex-col bg-white shadow-[0_0_80px_rgba(5,18,37,0.35)] transition-transform duration-300 ease-out ${
@@ -77,7 +82,7 @@ export default function Navbar() {
             <button
               type="button"
               className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#DCEAF9] text-[#0A2240] transition-colors hover:bg-[#F3F8FF]"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
               aria-label="Chiudi"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,30 +93,71 @@ export default function Navbar() {
 
           <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-6 pt-2">
             <nav className="flex flex-col items-stretch gap-1">
+              <div className="w-full">
+                <Link
+                  href="/"
+                  className="flex w-full items-center justify-start rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                  onClick={closeMobileMenu}
+                >
+                  Home
+                </Link>
+              </div>
               {NAV_LINKS.map((link) => (
                 <div key={link.href} className="w-full">
-                  <Link
-                    href={link.href}
-                    className="flex w-full items-center justify-center rounded-2xl px-4 py-5 text-center font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children && (
-                    <div className="mx-1 mt-1 space-y-0.5 rounded-2xl border border-[#E6EFFA] bg-[#F8FAFC] py-2">
-                      {link.children.map((child, idx) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className={`flex w-full items-center justify-center px-4 py-4 text-center font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240] ${
-                            idx < link.children!.length - 1 ? "border-b border-[#E6EFFA]" : ""
-                          }`}
-                          onClick={() => setMobileOpen(false)}
+                  {link.children ? (
+                    <>
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                        onClick={() => setMobileServicesOpen((prev) => !prev)}
+                        aria-expanded={mobileServicesOpen}
+                        aria-controls="mobile-services-submenu"
+                      >
+                        <span>{link.label}</span>
+                        <svg
+                          className={`h-6 w-6 shrink-0 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
                         >
-                          {child.label}
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      <div
+                        id="mobile-services-submenu"
+                        className={`mx-1 mt-1 overflow-hidden rounded-2xl border border-[#E6EFFA] bg-[#F8FAFC] transition-all duration-300 ${
+                          mobileServicesOpen ? "max-h-96 py-2 opacity-100" : "max-h-0 py-0 opacity-0"
+                        }`}
+                      >
+                        <Link
+                          href="/servizi"
+                          className="flex w-full items-center justify-start px-6 py-4 text-left font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240]"
+                          onClick={closeMobileMenu}
+                        >
+                          Tutti i Servizi
                         </Link>
-                      ))}
-                    </div>
+                        {link.children.map((child, idx) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={`flex w-full items-center justify-start px-8 py-4 text-left font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240] ${
+                              idx < link.children.length - 1 ? "border-b border-[#E6EFFA]" : ""
+                            }`}
+                            onClick={closeMobileMenu}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="flex w-full items-center justify-start rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                      onClick={closeMobileMenu}
+                    >
+                      {link.label}
+                    </Link>
                   )}
                 </div>
               ))}
@@ -124,7 +170,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-14 w-full items-center justify-center gap-2 rounded-full border border-[#ADE6C0] bg-[#E7F9EE] text-base font-semibold tracking-wide text-[#1AA552] transition-colors hover:bg-[#DDF6E7]"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-current">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -136,7 +182,7 @@ export default function Navbar() {
               href="/contatti"
               className="flex h-14 w-full items-center justify-center gap-2 rounded-full text-base font-semibold tracking-wide text-white shadow-[0_12px_26px_rgba(10,166,255,0.35)] transition-opacity hover:opacity-95"
               style={{ background: "linear-gradient(90deg, #0075FF 0%, #00C4FF 100%)" }}
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               Richiedi Preventivo
             </Link>
@@ -150,17 +196,20 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
         scrolled
-          ? "bg-[#06142A]/85 border-b border-[#A4D5FF]/20 shadow-[0_1px_40px_rgba(0,0,0,0.35)]"
-          : "bg-[#06142A]/55 border-b border-transparent"
+          ? "bg-[#001a33]/88 border-b border-[#A4D5FF]/20 shadow-[0_1px_40px_rgba(0,0,0,0.35)]"
+          : "bg-[#001a33]/62 border-b border-transparent"
       }`}
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-10">
         <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
-          {/* Mobile: hamburger a sinistra */}
+          {/* Bilanciamento mobile a sinistra */}
+          <div className="w-12 shrink-0 lg:hidden" aria-hidden />
+
+          {/* Mobile: hamburger a destra */}
           <button
             type="button"
             className="relative z-[60] flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[6px] rounded-2xl border border-[#D7E7F7] bg-white text-[#0A2240] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => (mobileOpen ? closeMobileMenu() : setMobileOpen(true))}
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileOpen}
           >
@@ -189,9 +238,6 @@ export default function Navbar() {
           >
             <HeaderLogo compact />
           </Link>
-
-          {/* Bilanciamento mobile */}
-          <div className="w-12 shrink-0 lg:hidden" aria-hidden />
 
           {/* Desktop nav — centrato nello spazio disponibile */}
           <div className="hidden min-w-0 flex-1 justify-center lg:flex">

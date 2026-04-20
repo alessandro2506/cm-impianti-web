@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,10 +11,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const bebas = Bebas_Neue({
-  weight: "400",
+const mono = Roboto_Mono({
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -57,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${bebas.variable} h-full w-full`}>
-      <body className="flex min-h-screen w-full min-w-0 flex-col bg-[#0A0F1E] text-[#E8EDF5]">
+    <html lang="it" className={`${inter.variable} ${mono.variable} h-full w-full`}>
+      <body className="flex min-h-screen w-full min-w-0 flex-col bg-[#001a33] text-[#F8FAFC]">
         <Navbar />
         <main className="min-h-0 w-full flex-1 scroll-pt-28 pt-24 sm:pt-[6rem] lg:scroll-pt-32 lg:pt-[7.75rem]">{children}</main>
         <Footer />

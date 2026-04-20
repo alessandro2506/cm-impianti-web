@@ -1,11 +1,11 @@
 // Design System v2 — CM Impianti
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import KpiCounter from "@/components/KpiCounter";
 import SectionTitle from "@/components/SectionTitle";
 import CtaButton from "@/components/CtaButton";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
+import MediaCarousel from "@/components/MediaCarousel";
 import { SERVICES, CASE_STUDIES, SITE_CONFIG } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -93,164 +93,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── SERVIZI — magazine grid ─── */}
-      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#07152B] py-32 pb-36 lg:py-44 lg:pb-48">
+      {/* ─── SERVIZI — horizontal media carousel ─── */}
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#001a33] py-28 lg:py-36">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
-          <div className="mb-16">
+          <div className="mb-12 lg:mb-14">
             <SectionTitle
               label="Cosa facciamo"
               title="SERVIZI CORE"
-              subtitle="Tre aree di specializzazione con oltre 30 anni di expertise tecnica certificata."
+              subtitle="Sfoglia i servizi principali con vista immersiva e focus tecnico."
             />
           </div>
-
-          {/* Magazine grid: first card col-span-2, two medium alongside */}
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {/* Large card */}
-            <Link
-              href={`/servizi/${SERVICES[0].slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-[#C9A84C]/10 hover:border-[#C9A84C]/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(201,168,76,0.08)] md:col-span-2 lg:col-span-2"
-              style={{ background: "rgba(255,255,255,0.02)" }}
-            >
-              <div className="relative h-72 md:h-80">
-                <Image
-                  src={SERVICES[0].image}
-                  alt={SERVICES[0].title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/40 to-transparent" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-heading text-3xl text-[#F0F4F8] group-hover:text-[#C9A84C] transition-colors leading-tight mb-3">
-                  {SERVICES[0].title}
-                </h3>
-                <p className="mb-5 max-w-lg line-clamp-2 text-sm leading-[1.85] text-slate-300">
-                  {SERVICES[0].description}
-                </p>
-                <span className="text-[#C9A84C] text-sm font-medium flex items-center gap-1.5 group-hover:gap-3 transition-all">
-                  Scopri il servizio
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-
-            {/* Two medium cards stacked */}
-            <div className="flex flex-col gap-5">
-              {SERVICES.slice(1).map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/servizi/${service.slug}`}
-                  className="group relative overflow-hidden rounded-2xl border border-[#C9A84C]/10 hover:border-[#C9A84C]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(201,168,76,0.08)] flex-1"
-                  style={{ background: "rgba(255,255,255,0.02)" }}
-                >
-                  <div className="relative h-44">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/30 to-transparent" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-heading text-xl text-[#F0F4F8] group-hover:text-[#C9A84C] transition-colors leading-tight mb-2">
-                      {service.title}
-                    </h3>
-                    <span className="text-[#C9A84C] text-xs font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                      Scopri
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <MediaCarousel
+            ariaLabel="Slider servizi CM Impianti"
+            items={SERVICES.map((service) => ({
+              href: `/servizi/${service.slug}`,
+              image: service.image,
+              title: service.shortTitle,
+              meta: `Servizi · CM Impianti`,
+              description: service.description,
+            }))}
+          />
         </div>
       </section>
 
-      {/* ─── CASE STUDY — masonry 2+3 ─── */}
-      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#061124] pb-28 pt-32 lg:pb-40 lg:pt-44">
+      {/* ─── CASE STUDY — horizontal media carousel ─── */}
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#00172d] pb-28 pt-28 lg:pb-36 lg:pt-36">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="mb-10">
             <SectionTitle
               label="Track record"
               title="PROGETTI LANDMARK"
-              subtitle="5 interventi internazionali che hanno definito la nostra reputazione."
+              subtitle="Case study sfogliabili in stile editoriale per vedere interventi e milestone."
             />
           </div>
 
-          <div className="mb-14 lg:mb-20">
+          <div className="mb-10 lg:mb-12">
             <CtaButton href="/progetti" variant="secondary" className="w-full justify-center sm:w-auto">
               Visione dei progetti
             </CtaButton>
           </div>
-
-          {/* Top row: 2 large */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {CASE_STUDIES.slice(0, 2).map((cs) => (
-              <Link
-                key={cs.slug}
-                href={`/progetti/${cs.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-white/[0.06] hover:border-[#C9A84C]/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(201,168,76,0.06)]"
-              >
-                <div className="relative h-72">
-                  <Image
-                    src={cs.coverImage}
-                    alt={cs.title}
-                    fill
-                    className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/95 via-[#0A0F1E]/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-[#C9A84C] text-xs font-semibold tracking-wider uppercase mb-2">
-                      {cs.client} · {cs.year}
-                    </p>
-                    <h3 className="font-heading text-2xl text-[#F0F4F8] leading-tight">
-                      {cs.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Bottom row: 3 medium */}
-          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {CASE_STUDIES.slice(2).map((cs) => (
-              <Link
-                key={cs.slug}
-                href={`/progetti/${cs.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-white/[0.06] hover:border-[#C9A84C]/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(201,168,76,0.06)]"
-              >
-                <div className="relative h-52">
-                  <Image
-                    src={cs.coverImage}
-                    alt={cs.title}
-                    fill
-                    className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/95 via-[#0A0F1E]/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-[#C9A84C] text-xs font-semibold tracking-wider uppercase mb-1.5">
-                      {cs.client} · {cs.year}
-                    </p>
-                    <h3 className="font-heading text-xl text-[#F0F4F8] leading-tight">
-                      {cs.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <MediaCarousel
+            ariaLabel="Slider progetti CM Impianti"
+            items={CASE_STUDIES.map((cs) => ({
+              href: `/progetti/${cs.slug}`,
+              image: cs.coverImage,
+              title: cs.title,
+              meta: `${cs.year} · ${cs.client}`,
+              description: cs.subtitle,
+            }))}
+          />
         </div>
       </section>
 
