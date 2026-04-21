@@ -6,7 +6,7 @@ export default function InfiniteMarquee() {
 
   return (
     <section className="w-full min-w-0 overflow-hidden border-y border-[#9AD5FF]/20 bg-[linear-gradient(180deg,#07172D_0%,#071c33_45%,#0A2240_100%)] py-24 lg:py-28">
-      <div className="mx-auto mb-12 max-w-7xl px-6 text-center sm:mb-14 md:px-12">
+      <div className="mx-auto mb-12 max-w-[80rem] px-6 text-center sm:mb-14 md:px-12">
         <p className="mb-3 font-heading text-3xl font-bold tracking-[0.05em] text-white sm:text-4xl md:text-5xl">
           Hanno scelto CM Impianti
         </p>
@@ -28,12 +28,12 @@ export default function InfiniteMarquee() {
             <div
               key={`${partner.name}-${i}`}
               className="flex-shrink-0 mx-8 flex items-center justify-center"
-              style={{ width: partner.width + 40, height: 56 }}
+              style={{ width: `${(partner.width + 40) / 16}rem`, height: "3.5rem" }}
             >
               {partner.logo ? (
                 <div
                   className="text-[#E6F4FF]/85 hover:text-white transition-all duration-300 hover:scale-105"
-                  style={{ width: partner.width, height: partner.height }}
+                  style={{ width: `${partner.width / 16}rem`, height: `${partner.height / 16}rem` }}
                   title={partner.name}
                   aria-label={`Partner CM Impianti: ${partner.name}`}
                   dangerouslySetInnerHTML={{ __html: partner.logo }}

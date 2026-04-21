@@ -190,3 +190,30 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 - **Fluidità visuale**:
   - ridotte aree con misure rigide non essenziali nei blocchi hero/feature,
   - mantenuta navigazione sticky con comportamento uniforme su tutti i template.
+
+## 17. Verifica Finale Visuale (Apr 2026)
+
+- **Controllo coerenza cross-template**:
+  - confermato che i wrapper principali usano lo stesso schema fluido su homepage, pagine elenco e pagine dettaglio.
+- **Percezione “nessun cambiamento”**:
+  - in caso di discrepanze tra codice e resa online, verificare prima la cache browser/CDN (hard refresh o finestra anonima).
+- **Checklist rapida post-deploy**:
+  - Hero mobile: nessuna collisione tra testo e CTA,
+  - Header: logo a sinistra, hamburger a destra su mobile,
+  - Footer: griglia coerente e spaziatura ampia con linea dorata visibile.
+
+## 18. Sistema Fluido Proporzionale (Apr 2026)
+
+- **Centratura unificata desktop**:
+  - adottato lo standard unico `max-w-[80rem] mx-auto` su wrapper globali di pagine e componenti condivisi.
+- **Unità relative per dimensioni UI**:
+  - convertite le misure CSS rigide rilevanti (`px`) in unità relative (`rem`) su elementi di layout (es. scrollbar, underline, icone hamburger, marquee sizing).
+- **Hero in flusso naturale (no collisioni)**:
+  - struttura riscritta in `flex flex-col` con `gap` e senza margini verticali “a incastro” tra titolo, testo e CTA,
+  - rimosso l’overlay assoluto dietro al testo hero, sostituito da blocco nel flusso con sfondo semitrasparente.
+- **Tipografia fluida**:
+  - titoli principali aggiornati con `clamp()` per ridimensionamento armonico tra mobile e desktop (hero homepage e `SectionTitle`).
+- **Header mobile robusto**:
+  - hamburger non più in posizione assoluta nel contenitore header; ora segue il layout flex (`justify-between`) con allineamento stabile a destra.
+- **CTA e leggibilità**:
+  - confermato padding interno in `rem` (`px-10 py-4`) per mantenere respiro costante e prevenire contatto testo-bordo.

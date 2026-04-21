@@ -27,7 +27,7 @@ export default function SectionTitle({
       <h2
         className={`font-heading leading-none ${
           gold ? "text-[#C9A84C]" : "text-white"
-        } text-3xl md:text-4xl lg:text-5xl`}
+        } text-[clamp(1.9rem,4.1vw,3.2rem)]`}
       >
         {title}
       </h2>

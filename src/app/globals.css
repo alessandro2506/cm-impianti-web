@@ -61,7 +61,7 @@ p {
 ::selection { background: #C9A84C; color: #0A0F1E; }
 
 /* ─── Scrollbar ──────────────────────────────────────── */
-::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar       { width: 0.3125rem; }
 ::-webkit-scrollbar-track { background: #001a33; }
 ::-webkit-scrollbar-thumb { background: #C9A84C40; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
@@ -89,7 +89,7 @@ p {
   left: 0.65rem;
   right: 0.65rem;
   bottom: 0.28rem;
-  height: 2px;
+  height: 0.125rem;
   border-radius: 1px;
   background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.85), transparent);
   transform: scaleX(0);

@@ -14,7 +14,7 @@ export default function ContattiPage() {
     <>
       {/* HERO */}
       <section className="scroll-mt-28 pb-16 pt-12 md:pt-16">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <SectionTitle
             label="Parliamo del tuo progetto"
             title="CONTATTI"
@@ -24,7 +24,7 @@ export default function ContattiPage() {
       </section>
 
       <section className="pb-16 md:pb-24 lg:pb-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* FORM */}
             <div className="lg:col-span-3">

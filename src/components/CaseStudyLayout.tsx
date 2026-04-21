@@ -40,7 +40,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/50 to-[#0A0F1E]/20" />
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-28 px-6 pt-16 md:px-12 md:pt-20">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] scroll-mt-28 px-6 pt-16 md:px-12 md:pt-20">
           <nav className="flex items-center gap-2 text-xs text-[#9BA8C0] mb-8">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
             <span>/</span>
@@ -60,7 +60,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
 
       {/* STATS */}
       <section className="bg-[#060B16] border-y border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#1E2A42]">
             {cs.stats.map((stat) => (
               <div key={stat.label} className="px-6 py-8 text-center">
@@ -74,7 +74,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
 
       {/* DESCRIZIONE */}
       <section className="py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2 space-y-10">
               <div>
@@ -128,7 +128,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
       {/* GALLERY */}
       {cs.gallery.length > 1 && (
         <section className="pb-16 md:pb-24 lg:pb-28">
-          <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+          <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
             <h2 className="font-heading text-3xl text-[#E8EDF5] mb-8">GALLERIA</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cs.gallery.map((img, i) => (

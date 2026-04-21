@@ -15,7 +15,7 @@ export default function ProgettiPage() {
     <>
       {/* HERO */}
       <section className="scroll-mt-28 pb-16 pt-12 md:pt-16">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <SectionTitle
             label="Track record"
             title="PORTFOLIO PROGETTI"
@@ -26,7 +26,7 @@ export default function ProgettiPage() {
 
       {/* GRID PROGETTI */}
       <section className="pb-16 md:pb-24 lg:pb-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CASE_STUDIES.map((cs) => (
               <Link

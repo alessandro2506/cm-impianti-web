@@ -39,16 +39,16 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] min-w-0 px-6 py-14 md:px-12 lg:py-20">
           {/* Text column — 55% */}
-          <div className="lg:w-[55%] xl:w-[50%]">
+          <div className="flex flex-col gap-6 lg:w-[55%] lg:gap-7 xl:w-1/2">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/25 text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/25 bg-[#C9A84C]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C9A84C]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse" />
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="mb-5 font-heading text-4xl leading-[1] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-heading text-[clamp(2.1rem,6vw,4.6rem)] leading-[1] text-white">
               IMPIANTISTICA
               <br />
               <span className="text-[#4DB8FF]">NAVALE</span>
@@ -56,16 +56,14 @@ export default function HomePage() {
               <span className="text-slate-200">{"& INDUSTRIALE"}</span>
             </h1>
 
-            {/* Text with mobile readability protection */}
-            <div className="relative mb-16 sm:mb-14">
-              <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
-              <p className="relative max-w-xl text-sm leading-[1.75] text-slate-100 sm:text-base lg:text-[1.05rem]">
-                30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
-                Certificati Bureau Veritas. Contractor navale di fiducia.
+            <div className="max-w-xl rounded-xl bg-[#0A0F1E]/40 p-4 backdrop-blur-[0.125rem] lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+              <p className="text-sm leading-[1.75] text-slate-100 sm:text-base lg:text-[1.05rem]">
+                30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard. Certificati Bureau
+                Veritas. Contractor navale di fiducia.
               </p>
             </div>
 
-            <div className="mb-20 mt-0 flex flex-wrap gap-4 sm:mb-24 lg:mb-28">
+            <div className="flex flex-wrap gap-4 pt-2">
               <CtaButton href="/contatti" variant="primary">
                 Richiedi Preventivo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +83,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll cue */}
-        <div className="relative z-10 flex flex-col items-center gap-2 opacity-40 mt-6 mb-8">
+        <div className="relative z-10 mt-6 mb-8 flex flex-col items-center gap-2 opacity-40">
           <div className="w-px h-8 bg-gradient-to-b from-transparent to-[#C9A84C]/40" />
           <svg className="w-4 h-4 text-[#C9A84C]/60 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
@@ -95,7 +93,7 @@ export default function HomePage() {
 
       {/* ─── SERVIZI — horizontal media carousel ─── */}
       <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#001a33] py-16 md:py-24 lg:py-28">
-        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-6 md:px-12">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] min-w-0 px-6 md:px-12">
           <div className="mb-12 lg:mb-14">
             <SectionTitle
               label="Cosa facciamo"
@@ -119,7 +117,7 @@ export default function HomePage() {
 
       {/* ─── CASE STUDY — horizontal media carousel ─── */}
       <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#00172d] py-16 md:py-24 lg:py-28">
-        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-6 md:px-12">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] min-w-0 px-6 md:px-12">
           <div className="mb-10">
             <SectionTitle
               label="Track record"
@@ -157,7 +155,7 @@ export default function HomePage() {
           style={{ background: "radial-gradient(circle, #C9A84C, transparent 70%)" }}
         />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-6 md:px-12">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] min-w-0 px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: copy */}

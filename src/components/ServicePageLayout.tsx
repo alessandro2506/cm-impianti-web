@@ -38,7 +38,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1E]/85 via-[#0A0F1E]/60 to-[#0A0F1E]" />
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-28 px-6 md:px-12">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] scroll-mt-28 px-6 md:px-12">
           <nav className="flex items-center gap-2 text-xs text-[#9BA8C0] mb-6">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
             <span>/</span>
@@ -60,7 +60,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
 
       {/* FEATURES + IMAGE */}
       <section className="py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionTitle
@@ -95,7 +95,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
 
       {/* CERTIFICAZIONI */}
       <section className="bg-[#060B16] py-16 md:py-20 border-y border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.22em] uppercase mb-3">
             Certificazioni pertinenti
           </p>
@@ -109,7 +109,7 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
       {/* CASE STUDY CORRELATI */}
       {relatedProjects.length > 0 && (
         <section className="pb-16 pt-16 md:pb-20 md:pt-24 lg:pb-24 lg:pt-28">
-          <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+          <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
             <div className="mb-14 lg:mb-16">
               <SectionTitle
                 label="Casi reali"

@@ -176,21 +176,21 @@ export default function Navbar() {
           : "bg-[#001a33]/62 border-b border-transparent"
       }`}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-        <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
+      <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
+        <div className="flex h-20 items-center justify-between gap-2 lg:h-24 lg:gap-4">
           {/* Mobile: hamburger ancorato a destra */}
           <button
             type="button"
-            className="absolute right-0 top-1/2 z-[60] flex h-12 w-12 -translate-y-1/2 flex-col items-center justify-center gap-[6px] rounded-2xl border border-[#D7E7F7] bg-white text-[#0A2240] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all lg:hidden"
+            className="z-[60] flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-2xl border border-[#D7E7F7] bg-white text-[#0A2240] shadow-[0_6px_24px_rgba(10,34,64,0.12)] transition-all lg:hidden"
             onClick={() => (mobileOpen ? closeMobileMenu() : setMobileOpen(true))}
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileOpen}
           >
             <span
-              className={`block h-[2px] w-6 origin-center rounded-full bg-current transition-all duration-300 ${mobileOpen ? "translate-y-[4px] rotate-45" : ""}`}
+              className={`block h-[0.125rem] w-6 origin-center rounded-full bg-current transition-all duration-300 ${mobileOpen ? "translate-y-[0.25rem] rotate-45" : ""}`}
             />
             <span
-              className={`block h-[2px] w-6 origin-center rounded-full bg-current transition-all duration-300 ${mobileOpen ? "-translate-y-[4px] -rotate-45" : ""}`}
+              className={`block h-[0.125rem] w-6 origin-center rounded-full bg-current transition-all duration-300 ${mobileOpen ? "-translate-y-[0.25rem] -rotate-45" : ""}`}
             />
           </button>
 
@@ -206,7 +206,7 @@ export default function Navbar() {
           {/* Logo mobile a sinistra */}
           <Link
             href="/"
-            className="z-[55] flex max-w-[calc(100%-4.5rem)] pr-14 lg:hidden"
+            className="z-[55] flex max-w-[calc(100%-4.5rem)] pr-6 lg:hidden"
             aria-label="CM Impianti — Homepage"
           >
             <HeaderLogo compact />
@@ -292,7 +292,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/contatti"
-              className="px-6 py-3 rounded-full border-2 border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0A0F1E] font-semibold text-[14px] tracking-wide transition-all duration-200 hover:scale-[1.03]"
+              className="rounded-full border-2 border-[#C9A84C] px-6 py-3 text-sm font-semibold tracking-wide text-[#C9A84C] transition-all duration-200 hover:scale-[1.03] hover:bg-[#C9A84C] hover:text-[#0A0F1E]"
             >
               Richiedi Preventivo
             </Link>

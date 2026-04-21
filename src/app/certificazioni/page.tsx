@@ -22,7 +22,7 @@ export default function CertificazioniPage() {
     <>
       {/* HERO */}
       <section className="scroll-mt-28 pb-16 pt-12 md:pt-16">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <SectionTitle
             label="Fiducia documentata"
             title="CERTIFICAZIONI"
@@ -33,7 +33,7 @@ export default function CertificazioniPage() {
 
       {/* INTRO CARD */}
       <section className="pb-12">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: "🏆", label: "Bureau Veritas", desc: "Il marchio di qualità navale più riconosciuto internazionalmente." },
@@ -52,7 +52,7 @@ export default function CertificazioniPage() {
 
       {/* LISTA CERTIFICAZIONI PER AREA */}
       <section className="py-16 md:py-24">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           {CERT_AREAS.map((area) => {
             const certs = CERTIFICATIONS.filter((c) => c.area === area.id);
             if (certs.length === 0) return null;

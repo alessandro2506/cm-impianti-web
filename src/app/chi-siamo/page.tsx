@@ -78,7 +78,7 @@ export default function ChiSiamoPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1E]/80 via-[#0A0F1E]/60 to-[#0A0F1E]" />
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="relative z-10 mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <p className="text-[#C9A84C] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
             Palermo · Gela · Dal 1993
           </p>
@@ -93,7 +93,7 @@ export default function ChiSiamoPage() {
 
       {/* FILOSOFIA */}
       <section className="py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionTitle
@@ -169,7 +169,7 @@ export default function ChiSiamoPage() {
 
       {/* TIMELINE */}
       <section className="bg-[linear-gradient(180deg,#001a33_0%,#001a33_55%,#00172d_100%)] py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="mb-10 text-center sm:mb-14">
             <SectionTitle
               label="La nostra storia"
@@ -184,7 +184,7 @@ export default function ChiSiamoPage() {
 
       {/* SEDI */}
       <section className="py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <div className="mb-12">
             <SectionTitle label="Dove operiamo" title="DUE SEDI OPERATIVE" />
           </div>
@@ -238,7 +238,7 @@ export default function ChiSiamoPage() {
 
       {/* PARTNER */}
       <section className="py-12 border-t border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+        <div className="mx-auto w-full max-w-[80rem] px-6 md:px-12">
           <p className="text-center text-[#9BA8C0] text-xs tracking-[0.2em] uppercase mb-8">
             Partner e clienti di riferimento
           </p>
