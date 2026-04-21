@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git -C /Users/alessandrofiscella/Desktop/Progetti/cm-impianti-web config --get user.name)",
+      "Bash(git -C /Users/alessandrofiscella/Desktop/Progetti/cm-impianti-web log --oneline)",
+      "Bash(git -C /Users/alessandrofiscella/Desktop/Progetti/cm-impianti-web remote -v)",
+      "Bash(git -C /Users/alessandrofiscella/Desktop/Progetti/cm-impianti-web status --short)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(gh repo *)"
+    ]
+  }
+}
