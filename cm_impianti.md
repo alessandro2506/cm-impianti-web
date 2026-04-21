@@ -111,3 +111,24 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
   - rimossa la regola `overflow: hidden` dal contenitore `.section-bg` per ridurre il rischio di tagli o occultamenti involontari.
 - **Riduzione scala hero**:
   - titolo e testo descrittivo homepage ulteriormente ridotti su mobile/desktop per mantenere proporzioni istituzionali e prevenire sovrapposizioni.
+
+## 12. Visione Alvenco x Fincantieri (Apr 2026)
+
+- **Identità visiva**:
+  - sfondo globale confermato su `#001a33` con gradienti blur ciano/blu molto soft agli angoli,
+  - tipografia istituzionale: titoli sans (`Inter`) e dati tecnici/timeline in mono (`.font-technical`).
+- **Header mobile**:
+  - logo ancorato a sinistra con tagline visibile,
+  - hamburger fisso a destra, senza sovrapposizioni con il marchio.
+- **Layout full-width e slider**:
+  - sezioni homepage con card orizzontali scrollabili (`Servizi`, `Progetti`) mantenendo il look pulito,
+  - nessun blocco dello scroll verticale mentre l’utente interagisce con i caroselli.
+- **Spaziature “breathable”**:
+  - incremento della distanza verticale tra le sezioni (`py-24`+),
+  - footer con stacco superiore marcato, linea dorata netta e forte padding prima del logo.
+- **Footer responsive definitivo**:
+  - colonne in linea su desktop (`lg:grid-cols-4`),
+  - incolonnamento progressivo su mobile (`grid-cols-1` → `sm:grid-cols-2`).
+- **Bottoni e micro-interazioni**:
+  - CTA rounded-full con padding generoso (`px-10 py-4`, `sm:px-12`),
+  - hover fluidi e leggibili in continuità SaaS/istituzionale.

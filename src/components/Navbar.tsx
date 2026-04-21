@@ -227,10 +227,10 @@ export default function Navbar() {
             <HeaderLogo />
           </Link>
 
-          {/* Logo mobile centrato */}
+          {/* Logo mobile a sinistra */}
           <Link
             href="/"
-            className="absolute left-1/2 top-1/2 z-[55] flex -translate-x-1/2 -translate-y-1/2 lg:hidden"
+            className="z-[55] flex max-w-[calc(100%-4.5rem)] pr-14 lg:hidden"
             aria-label="CM Impianti — Homepage"
           >
             <HeaderLogo compact />

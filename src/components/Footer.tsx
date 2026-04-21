@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-white/10 py-12 sm:gap-x-10 lg:grid-cols-4 lg:gap-x-14 lg:py-16">
+          <div className="grid grid-cols-1 gap-y-10 border-t border-white/10 py-12 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4 lg:gap-x-14 lg:py-16">
             <div>
               <p className="font-technical text-[11px] uppercase tracking-[0.24em] text-[#C9A84C]">
                 Servizi

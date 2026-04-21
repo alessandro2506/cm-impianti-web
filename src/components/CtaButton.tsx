@@ -17,7 +17,7 @@ export default function CtaButton({
   external = false,
 }: CtaButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2.5 min-h-[3.5rem] px-8 py-3.5 sm:min-h-[3.75rem] sm:px-10 sm:py-4 rounded-full font-semibold text-base sm:text-[17px] leading-tight tracking-[-0.01em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0CA6E8]";
+    "inline-flex items-center justify-center gap-2.5 min-h-[3.5rem] px-10 py-4 sm:min-h-[3.75rem] sm:px-12 sm:py-[1.05rem] rounded-full font-semibold text-base sm:text-[17px] leading-tight tracking-[-0.01em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0CA6E8]";
 
   const variants = {
     primary:

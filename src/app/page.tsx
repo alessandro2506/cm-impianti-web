@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO — 2-col asymmetric ─── */}
-      <section className="relative flex min-h-[calc(100vh-5rem)] w-full min-w-0 flex-col justify-center overflow-hidden lg:min-h-[calc(100vh-6rem)]">
+      <section className="relative flex min-h-[calc(100vh-5rem)] w-full min-w-0 flex-col justify-center overflow-hidden py-6 lg:min-h-[calc(100vh-6rem)]">
         {/* Full-bleed image */}
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%]">
@@ -94,7 +94,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVIZI — horizontal media carousel ─── */}
-      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#001a33] py-28 lg:py-36">
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.22),_transparent_50%),radial-gradient(circle_at_bottom_left,_rgba(0,124,255,0.18),_transparent_46%),radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08),transparent_55%),#001a33] py-24 sm:py-28 lg:py-40">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="mb-12 lg:mb-14">
             <SectionTitle
@@ -117,7 +117,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CASE STUDY — horizontal media carousel ─── */}
-      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#00172d] pb-28 pt-28 lg:pb-36 lg:pt-36">
+      <section className="section-bg relative w-full min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(63,175,255,0.22),_transparent_48%),radial-gradient(ellipse_at_80%_50%,rgba(14,165,233,0.09),transparent_50%),#00172d] py-24 sm:py-28 lg:py-40">
         <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-5 sm:px-8 lg:px-10">
           <div className="mb-10">
             <SectionTitle
@@ -149,7 +149,7 @@ export default function HomePage() {
       <InfiniteMarquee />
 
       {/* ─── CTA — 2-col with image right + noise texture ─── */}
-      <section className="section-bg noise relative w-full min-w-0 overflow-hidden py-32 lg:py-44">
+      <section className="section-bg noise relative w-full min-w-0 overflow-hidden py-24 sm:py-28 lg:py-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(77,184,255,0.2),_transparent_42%),radial-gradient(ellipse_at_0%_100%,rgba(56,189,248,0.07),transparent_50%),#081327]" />
         <div
           className="pointer-events-none absolute left-0 top-1/2 h-[min(500px,90vw)] w-[min(500px,90vw)] max-w-full -translate-y-1/2 rounded-full opacity-[0.07]"
@@ -177,7 +177,7 @@ export default function HomePage() {
                   href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=Buongiorno, vorrei informazioni sui vostri servizi`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[3.5rem] items-center justify-center gap-2 rounded-full border border-[#77DCA1] bg-[#E8F9EE] px-8 py-3.5 text-base font-semibold leading-tight tracking-[-0.01em] text-[#14984A] transition-all duration-200 hover:bg-[#DDF6E7] sm:min-h-[3.75rem] sm:px-10 sm:py-4 sm:text-[17px]"
+                  className="inline-flex min-h-[3.5rem] items-center justify-center gap-2 rounded-full border border-[#77DCA1] bg-[#E8F9EE] px-10 py-4 text-base font-semibold leading-tight tracking-[-0.01em] text-[#14984A] transition-all duration-200 hover:bg-[#DDF6E7] sm:min-h-[3.75rem] sm:px-12 sm:py-[1.05rem] sm:text-[17px]"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
