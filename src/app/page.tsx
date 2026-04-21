@@ -57,7 +57,7 @@ export default function HomePage() {
             </h1>
 
             {/* Text with mobile readability protection */}
-            <div className="relative mb-12 sm:mb-14">
+            <div className="relative mb-16 sm:mb-14">
               <div className="absolute -inset-x-4 -inset-y-3 rounded-xl bg-[#0A0F1E]/40 backdrop-blur-[2px] lg:hidden" />
               <p className="relative max-w-xl text-sm leading-[1.75] text-slate-100 sm:text-base lg:text-[1.05rem]">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard.
@@ -65,7 +65,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mb-20 mt-4 flex flex-wrap gap-4 sm:mb-24 lg:mb-28">
+            <div className="mb-20 mt-0 flex flex-wrap gap-4 sm:mb-24 lg:mb-28">
               <CtaButton href="/contatti" variant="primary">
                 Richiedi Preventivo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

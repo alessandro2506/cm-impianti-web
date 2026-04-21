@@ -169,3 +169,10 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 - **Controllo fluidità**:
   - nessun overflow-x nascosto usato per mascherare bug,
   - mantenuta architettura full-width senza larghezze fisse in pixel per i wrapper di sezione.
+
+## 15. Hotfix Hero Mobile Spacing (Apr 2026)
+
+- **Sezione Hero Homepage (mobile)**:
+  - aumentato lo stacco tra riquadro descrittivo (“30 anni al fianco…”) e blocco CTA,
+  - regolazione applicata con `mb-16` sul blocco testo e rimozione del margine superiore CTA (`mt-0`),
+  - obiettivo: evitare che il testo risulti visivamente “attaccato” ai bottoni `Richiedi Preventivo` e `Vedi i Progetti`.
