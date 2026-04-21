@@ -12,7 +12,7 @@ export default function Footer() {
       />
       <div className="border-t border-[#C9A84C]/25 shadow-[inset_0_1px_0_rgba(201,168,76,0.12)]">
         <div className="mx-auto w-full max-w-7xl px-[5%]">
-          <div className="pb-14 pt-20 sm:pb-16 sm:pt-24 lg:pb-20 lg:pt-28">
+          <div className="pb-14 pt-32 sm:pb-16 sm:pt-36 lg:pb-20 lg:pt-40">
             <div className="flex justify-center lg:justify-start">
               <HeaderLogo className="max-w-none" />
             </div>

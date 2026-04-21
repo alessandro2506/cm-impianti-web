@@ -68,3 +68,15 @@
   - struttura Next.js App Router valida,
   - dipendenze ripristinate,
   - branch di backup preservato (`backup-pre-reset`) per rollback.
+
+## Implementazione Eseguita su `main` (Apr 2026)
+
+- Eseguita ricostruzione completa nella root (`src/`, `public/`) senza modificare il contenuto in `archive/`.
+- Completate tutte le fasi operative descritte nel documento:
+  - **Fondamenta & Header**: design tokens aggiornati in `globals.css`, navbar sticky con logo a sinistra e hamburger a destra.
+  - **Hero Homepage**: layout liquido con `flex-col` mobile e `flex-row` desktop, separazioni con `gap`, CTA rounded con padding ampio.
+  - **Sezioni contenuto**: uniformazione dei wrapper interni su `max-w-7xl mx-auto px-[5%]` per coerenza cross-page.
+  - **Timeline Chi Siamo**: mantenuta struttura orizzontale con snap-scroll, hint e tipografia tecnica.
+  - **Footer istituzionale**: linea dorata superiore, aumento spazio logo-linea (>= 8rem tramite `pt-32+`) e colonne affiancate desktop.
+- Rimossi pattern di container legacy (`max-w-[80rem]`, `px-6 md:px-12`) dai file applicativi principali.
+- Verifica tecnica finale completata con linting (`npm run lint`) senza errori.

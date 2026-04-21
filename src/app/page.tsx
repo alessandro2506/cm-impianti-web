@@ -17,11 +17,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* ─── HERO — 2-col asymmetric ─── */}
-      <section className="relative flex min-h-[calc(100vh-5rem)] w-full min-w-0 flex-col justify-center overflow-hidden py-6 lg:min-h-[calc(100vh-6rem)]">
-        {/* Full-bleed image */}
+      {/* FASE 1 — HERO LIQUIDO */}
+      <section className="relative flex min-h-[calc(100vh-5rem)] w-full min-w-0 items-center overflow-hidden py-12 lg:min-h-[calc(100vh-6rem)]">
         <div className="absolute inset-0 z-0">
-          <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%]">
+          <div className="absolute inset-y-0 right-0 w-full md:w-[62%]">
             <Image
               src="https://www.cmimpianti.info/wp-content/uploads/2021/03/Senza-titolo-2-1.jpg"
               alt="CM Impianti — Cantiere navale Palermo"
@@ -31,24 +30,19 @@ export default function HomePage() {
               sizes="(max-width: 1024px) 100vw, 55vw"
             />
           </div>
-          {/* Left overlay — stronger for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#041328] from-[34%] via-[#052043]/80 to-[#042342]/45" />
-          {/* Mobile full overlay */}
-          <div className="absolute inset-0 bg-[#0A0F1E]/60 lg:hidden" />
-          {/* Bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#031224] via-[#052043]/85 to-[#042342]/45" />
+          <div className="absolute inset-0 bg-[#07162D]/40 lg:hidden" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-[5%] py-14 lg:py-20">
-          {/* Text column — 55% */}
-          <div className="flex flex-col gap-6 lg:w-[55%] lg:gap-7 xl:w-1/2">
-            {/* Pill badge */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl min-w-0 px-[5%]">
+          <div className="flex w-full flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
+            <div className="flex w-full max-w-3xl flex-col gap-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/25 bg-[#C9A84C]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C9A84C]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse" />
               Palermo · Gela · Italia
             </div>
 
-            <h1 className="font-heading text-[clamp(2.1rem,6vw,4.6rem)] leading-[1] text-white">
+              <h1 className="font-heading text-[clamp(2.1rem,6vw,4.8rem)] leading-[0.98] text-white">
               IMPIANTISTICA
               <br />
               <span className="text-[#4DB8FF]">NAVALE</span>
@@ -56,14 +50,13 @@ export default function HomePage() {
               <span className="text-slate-200">{"& INDUSTRIALE"}</span>
             </h1>
 
-            <div className="max-w-xl rounded-xl bg-[#0A0F1E]/40 p-4 backdrop-blur-[0.125rem] lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
-              <p className="text-sm leading-[1.75] text-slate-100 sm:text-base lg:text-[1.05rem]">
+              <p className="max-w-2xl text-[clamp(1rem,1.05vw,1.15rem)] leading-[1.72] text-slate-100">
                 30 anni al fianco di Fincantieri, MSC Crociere, Silversea e Cunard. Certificati Bureau
                 Veritas. Contractor navale di fiducia.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex w-full flex-wrap gap-4 lg:w-auto lg:justify-end">
               <CtaButton href="/contatti" variant="primary">
                 Richiedi Preventivo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,20 +67,10 @@ export default function HomePage() {
                 Vedi i Progetti
               </CtaButton>
             </div>
-
-            {/* KPI — integrated into hero bottom */}
-            <div>
-              <KpiCounter />
-            </div>
           </div>
-        </div>
-
-        {/* Scroll cue */}
-        <div className="relative z-10 mt-6 mb-8 flex flex-col items-center gap-2 opacity-40">
-          <div className="w-px h-8 bg-gradient-to-b from-transparent to-[#C9A84C]/40" />
-          <svg className="w-4 h-4 text-[#C9A84C]/60 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-          </svg>
+          <div className="mt-8">
+            <KpiCounter />
+          </div>
         </div>
       </section>
 

@@ -90,16 +90,18 @@ export default function CertificazioniPage() {
 
       {/* CTA */}
       <section className="bg-[#060B16] py-16 border-t border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
-          <h2 className="font-heading text-4xl text-[#E8EDF5] mb-4">
-            CERTIFICAZIONI DISPONIBILI SU RICHIESTA
-          </h2>
-          <p className="text-[#9BA8C0] mb-8">
-            Documentazione completa disponibile per ogni progetto. Richiedi il dossier tecnico.
-          </p>
-          <CtaButton href="/contatti" variant="primary">
-            Richiedi Documentazione
-          </CtaButton>
+        <div className="mx-auto w-full max-w-7xl px-[5%] text-center">
+          <div className="mx-auto w-full max-w-3xl">
+            <h2 className="font-heading text-4xl text-[#E8EDF5] mb-4">
+              CERTIFICAZIONI DISPONIBILI SU RICHIESTA
+            </h2>
+            <p className="text-[#9BA8C0] mb-8">
+              Documentazione completa disponibile per ogni progetto. Richiedi il dossier tecnico.
+            </p>
+            <CtaButton href="/contatti" variant="primary">
+              Richiedi Documentazione
+            </CtaButton>
+          </div>
         </div>
       </section>
     </>

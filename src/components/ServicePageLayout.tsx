@@ -146,16 +146,18 @@ export default function ServicePageLayout({ service }: ServicePageLayoutProps) {
 
       {/* CTA */}
       <section className="bg-[#060B16] py-16 border-t border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
-          <h2 className="font-heading text-4xl lg:text-5xl text-[#E8EDF5] mb-4">
-            PARLIACI DEL TUO PROGETTO
-          </h2>
-          <p className="text-[#9BA8C0] mb-8">
-            Preventivo gratuito. Risposta entro 24 ore. Certificazioni disponibili su richiesta.
-          </p>
-          <CtaButton href="/contatti" variant="primary">
-            Richiedi Preventivo
-          </CtaButton>
+        <div className="mx-auto w-full max-w-7xl px-[5%] text-center">
+          <div className="mx-auto w-full max-w-3xl">
+            <h2 className="font-heading text-4xl lg:text-5xl text-[#E8EDF5] mb-4">
+              PARLIACI DEL TUO PROGETTO
+            </h2>
+            <p className="text-[#9BA8C0] mb-8">
+              Preventivo gratuito. Risposta entro 24 ore. Certificazioni disponibili su richiesta.
+            </p>
+            <CtaButton href="/contatti" variant="primary">
+              Richiedi Preventivo
+            </CtaButton>
+          </div>
         </div>
       </section>
     </>

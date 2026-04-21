@@ -1,24 +1,25 @@
-/* Design System v2 — CM Impianti */
 @import "tailwindcss";
 
-/* ─── Design tokens ─────────────────────────────────── */
 @theme {
-  --color-navy:        #0A0F1E;
-  --color-navy-mid:    #111827;
-  --color-navy-light:  #1C2A3A;
-  --color-gold:        #C9A84C;
-  --color-gold-light:  #E2B96A;
-  --color-white:       #F8FAFC;
-  --color-muted:       #8A9BAD;
-  --color-border:      rgba(201,168,76,0.15);
-  --color-surface:     rgba(255,255,255,0.03);
-
+  --color-ocean-blue: #001a33;
+  --color-gold: #c9a84c;
+  --color-ice-white: #f8fafc;
   --font-heading: var(--font-inter);
-  --font-body:    var(--font-inter);
+  --font-body: var(--font-inter);
+  --font-technical: var(--font-mono);
+
+  /* Fluid typography scale (clamp) */
+  --text-fluid-sm: clamp(0.875rem, 0.8vw, 1rem);
+  --text-fluid-base: clamp(1rem, 1vw, 1.125rem);
+  --text-fluid-lg: clamp(1.25rem, 2.2vw, 2rem);
+  --text-fluid-xl: clamp(1.9rem, 4.8vw, 4.6rem);
 }
 
-/* ─── Reset & base ───────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -29,13 +30,12 @@ body {
   width: 100%;
   min-width: 0;
   background-color: #001a33;
-  color: #F8FAFC;
+  color: #f8fafc;
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 0.95rem;
+  font-size: var(--text-fluid-base);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Mesh soft SaaS — profondità senza appesantire */
   background-image:
     radial-gradient(ellipse 120% 80% at 10% -10%, rgba(56, 189, 248, 0.17), transparent 56%),
     radial-gradient(ellipse 90% 60% at 92% 20%, rgba(37, 99, 235, 0.12), transparent 52%),
@@ -54,19 +54,18 @@ p {
   font-weight: 300;
 }
 
-.font-technical {
+.font-technical,
+.font-mono {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-::selection { background: #C9A84C; color: #0A0F1E; }
+::selection { background: #c9a84c; color: #0a0f1e; }
 
-/* ─── Scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 0.3125rem; }
 ::-webkit-scrollbar-track { background: #001a33; }
-::-webkit-scrollbar-thumb { background: #C9A84C40; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+::-webkit-scrollbar-thumb { background: #c9a84c40; border-radius: 0.25rem; }
+::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
 
-/* ─── Desktop nav: pill + glass + underline 0.3s ─────── */
 .nav-pill {
   position: relative;
   overflow: visible;
@@ -107,14 +106,12 @@ p {
   transform: scaleX(1);
 }
 
-/* Reveal: nessun contenuto nascosto (no opacity-0) */
 .reveal,
 .reveal-group > * {
   opacity: 1;
   transform: none;
 }
 
-/* ─── Glass surface ──────────────────────────────────── */
 .glass {
   background: rgba(255,255,255,0.03);
   backdrop-filter: blur(14px);
@@ -122,7 +119,6 @@ p {
   border: 1px solid rgba(255,255,255,0.07);
 }
 
-/* ─── Noise texture overlay ──────────────────────────── */
 .noise::after {
   content: '';
   position: absolute;
@@ -134,7 +130,6 @@ p {
   border-radius: inherit;
 }
 
-/* ─── Infinite marquee ───────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -190,5 +185,4 @@ p {
   animation: carouselHint 1.2s ease-in-out infinite;
 }
 
-/* ─── Utility ────────────────────────────────────────── */
 .section-bg { position: relative; }

@@ -149,7 +149,8 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
 
       {/* CTA */}
       <section className="bg-[#060B16] py-16 border-t border-[#1E2A42]">
-        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
+        <div className="mx-auto w-full max-w-7xl px-[5%] text-center">
+          <div className="mx-auto w-full max-w-3xl">
           <h2 className="font-heading text-4xl text-[#E8EDF5] mb-4">
             HAI UN PROGETTO SIMILE?
           </h2>
@@ -163,6 +164,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
             <CtaButton href="/progetti" variant="outline">
               Altri Progetti
             </CtaButton>
+          </div>
           </div>
         </div>
       </section>
