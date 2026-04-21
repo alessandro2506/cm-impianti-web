@@ -96,7 +96,7 @@ export default function Navbar() {
               <div className="w-full">
                 <Link
                   href="/"
-                  className="flex w-full items-center justify-start rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                  className="flex w-full items-center justify-start rounded-2xl px-4 py-4 text-left font-heading text-xl font-medium leading-tight tracking-[0.01em] text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-2xl"
                   onClick={closeMobileMenu}
                 >
                   Home
@@ -108,7 +108,7 @@ export default function Navbar() {
                     <>
                       <button
                         type="button"
-                        className="flex w-full items-center justify-between rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                        className="flex w-full items-center justify-between rounded-2xl px-4 py-4 text-left font-heading text-xl font-medium leading-tight tracking-[0.01em] text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-2xl"
                         onClick={() => setMobileServicesOpen((prev) => !prev)}
                         aria-expanded={mobileServicesOpen}
                         aria-controls="mobile-services-submenu"
@@ -131,7 +131,7 @@ export default function Navbar() {
                       >
                         <Link
                           href="/servizi"
-                          className="flex w-full items-center justify-start px-6 py-4 text-left font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240]"
+                          className="flex w-full items-center justify-start px-6 py-3.5 text-left font-body text-base font-medium text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240]"
                           onClick={closeMobileMenu}
                         >
                           Tutti i Servizi
@@ -140,7 +140,7 @@ export default function Navbar() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className={`flex w-full items-center justify-start px-8 py-4 text-left font-body text-lg font-semibold text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240] ${
+                            className={`flex w-full items-center justify-start px-8 py-3.5 text-left font-body text-base font-medium text-[#1e3a5f] transition-colors hover:bg-white hover:text-[#0A2240] ${
                               idx < link.children.length - 1 ? "border-b border-[#E6EFFA]" : ""
                             }`}
                             onClick={closeMobileMenu}
@@ -153,7 +153,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="flex w-full items-center justify-start rounded-2xl px-4 py-5 text-left font-heading text-3xl font-bold leading-tight tracking-tight text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-4xl"
+                      className="flex w-full items-center justify-start rounded-2xl px-4 py-4 text-left font-heading text-xl font-medium leading-tight tracking-[0.01em] text-[#0A2240] transition-colors hover:bg-[#F0F7FF] sm:text-2xl"
                       onClick={closeMobileMenu}
                     >
                       {link.label}
@@ -162,30 +162,6 @@ export default function Navbar() {
                 </div>
               ))}
             </nav>
-          </div>
-
-          <div className="border-t border-[#E7EEF7] p-4 space-y-2.5">
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-14 w-full items-center justify-center gap-2 rounded-full border border-[#ADE6C0] bg-[#E7F9EE] text-base font-semibold tracking-wide text-[#1AA552] transition-colors hover:bg-[#DDF6E7]"
-              onClick={closeMobileMenu}
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-current">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.107 1.519 5.837L.057 23.943a.5.5 0 00.6.6l6.105-1.462A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.694-.493-5.244-1.358l-.376-.217-3.895.932.947-3.895-.217-.376A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-              </svg>
-              WhatsApp
-            </a>
-            <Link
-              href="/contatti"
-              className="flex h-14 w-full items-center justify-center gap-2 rounded-full text-base font-semibold tracking-wide text-white shadow-[0_12px_26px_rgba(10,166,255,0.35)] transition-opacity hover:opacity-95"
-              style={{ background: "linear-gradient(90deg, #0075FF 0%, #00C4FF 100%)" }}
-              onClick={closeMobileMenu}
-            >
-              Richiedi Preventivo
-            </Link>
           </div>
         </aside>
       </div>,
@@ -200,7 +176,7 @@ export default function Navbar() {
           : "bg-[#001a33]/62 border-b border-transparent"
       }`}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
         <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
           {/* Mobile: hamburger ancorato a destra */}
           <button

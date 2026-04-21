@@ -15,9 +15,11 @@ type CarouselItem = {
 export default function MediaCarousel({
   items,
   ariaLabel,
+  showIndicator = true,
 }: {
   items: CarouselItem[];
   ariaLabel: string;
+  showIndicator?: boolean;
 }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [showHint, setShowHint] = useState(true);
@@ -72,22 +74,24 @@ export default function MediaCarousel({
         ))}
       </div>
 
-      <div
-        className={`carousel-hint pointer-events-none absolute right-1 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#001a33]/75 p-2 text-white/85 shadow-[0_0_18px_rgba(0,0,0,0.35)] transition-opacity duration-500 md:flex ${
-          showHint ? "opacity-100" : "opacity-0"
-        }`}
-        aria-hidden="true"
-      >
-        <svg
-          className="h-5 w-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
+      {showIndicator && (
+        <div
+          className={`carousel-hint pointer-events-none absolute right-1 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#001a33]/75 p-2 text-white/85 shadow-[0_0_18px_rgba(0,0,0,0.35)] transition-opacity duration-500 md:flex ${
+            showHint ? "opacity-100" : "opacity-0"
+          }`}
+          aria-hidden="true"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
-        </svg>
-      </div>
+          <svg
+            className="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
+          </svg>
+        </div>
+      )}
     </div>
   );
 }

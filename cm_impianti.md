@@ -153,3 +153,19 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 - **Slider usabilità**:
   - scrolling orizzontale snap mantenuto,
   - nessuna interferenza con lo scroll verticale pagina durante interazione touch/mouse.
+
+## 14. Centratura & UI Refinement (Apr 2026)
+
+- **Centratura desktop simmetrica**:
+  - pattern contenitore applicato come standard: `w-full` + inner wrapper `max-w-7xl mx-auto px-6 md:px-12`.
+- **Hero e CTA**:
+  - separazione testo/call-to-action aumentata (`mb-10+`) per evitare collisioni su mobile,
+  - padding CTA reso tassativo e uniforme (`px-10 py-4`) con scala font più compatta su mobile.
+- **Carosello Servizi**:
+  - rimosso l’indicatore freccia/chevron; lo slide è suggerito solo dal clipping dell’ultima card.
+- **Drawer hamburger**:
+  - rimossi i due bottoni extra nel footer del menu mobile,
+  - tipografia dei link ridotta (`text-xl/sm:text-2xl`, peso `medium`) per tono istituzionale.
+- **Controllo fluidità**:
+  - nessun overflow-x nascosto usato per mascherare bug,
+  - mantenuta architettura full-width senza larghezze fisse in pixel per i wrapper di sezione.
