@@ -73,7 +73,7 @@ export default function Navbar() {
           onClick={closeMobileMenu}
         />
         <aside
-          className={`absolute top-0 right-0 z-10 flex h-full w-full max-w-[min(100%,420px)] flex-col bg-white shadow-[0_0_80px_rgba(5,18,37,0.35)] transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 z-10 flex h-full w-full max-w-[24rem] flex-col bg-white shadow-[0_0_80px_rgba(5,18,37,0.35)] transition-transform duration-300 ease-out ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -194,13 +194,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+      className={`sticky top-0 left-0 right-0 z-50 w-full backdrop-blur-md transition-all duration-300 ${
         scrolled
           ? "bg-[#001a33]/88 border-b border-[#A4D5FF]/20 shadow-[0_1px_40px_rgba(0,0,0,0.35)]"
           : "bg-[#001a33]/62 border-b border-transparent"
       }`}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-10">
         <div className="relative flex h-20 items-center gap-2 lg:h-24 lg:gap-4">
           {/* Mobile: hamburger ancorato a destra */}
           <button

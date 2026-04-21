@@ -66,7 +66,7 @@ export default function ChiSiamoPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative scroll-mt-28 overflow-hidden pb-24 pt-14 sm:pb-28 lg:pb-32 lg:pt-16">
+      <section className="relative scroll-mt-28 overflow-hidden pb-16 pt-12 md:pb-24 md:pt-14">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://www.cmimpianti.info/wp-content/uploads/2021/03/Senza-titolo-3.jpg"
@@ -92,7 +92,7 @@ export default function ChiSiamoPage() {
       </section>
 
       {/* FILOSOFIA */}
-      <section className="py-24 sm:py-28 lg:py-36">
+      <section className="py-16 md:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -168,7 +168,7 @@ export default function ChiSiamoPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="bg-[linear-gradient(180deg,#001a33_0%,#001a33_55%,#00172d_100%)] py-24 sm:py-28 lg:py-36">
+      <section className="bg-[linear-gradient(180deg,#001a33_0%,#001a33_55%,#00172d_100%)] py-16 md:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center sm:mb-14">
             <SectionTitle
@@ -183,7 +183,7 @@ export default function ChiSiamoPage() {
       </section>
 
       {/* SEDI */}
-      <section className="py-24 sm:py-28 lg:py-36">
+      <section className="py-16 md:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <SectionTitle label="Dove operiamo" title="DUE SEDI OPERATIVE" />

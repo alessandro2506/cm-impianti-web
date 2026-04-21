@@ -132,3 +132,24 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
 - **Bottoni e micro-interazioni**:
   - CTA rounded-full con padding generoso (`px-10 py-4`, `sm:px-12`),
   - hover fluidi e leggibili in continuità SaaS/istituzionale.
+
+## 13. Architettura Liquida Responsive (Apr 2026)
+
+- **Layout fluido**:
+  - contenitori principali normalizzati su `w-full min-w-0`,
+  - wrapper contenuto standardizzato con `max-w-7xl mx-auto` e gutter fluidi (`px-6 md:px-8 lg:px-10`).
+- **Header sticky**:
+  - navbar resa `sticky` full-width (non fixed),
+  - logo a sinistra + hamburger ancorato a destra e centrato verticalmente sul mobile.
+- **Spaziature dinamiche**:
+  - sezione standard con ritmo `py-16 md:py-24` (estensioni `lg:py-28` dove utile),
+  - mantenuta la distanza istituzionale nel footer con linea dorata e ampio padding prima del logo.
+- **CTA standard**:
+  - padding coerente e sicuro: `px-8 py-3.5` mobile, `md:px-10 md:py-4` desktop,
+  - testo mai a contatto con i bordi.
+- **Footer grid responsive**:
+  - mobile in stack progressivo (`grid-cols-1`),
+  - desktop affiancato (`sm:grid-cols-2`, `lg:grid-cols-4`) con gerarchie leggibili.
+- **Slider usabilità**:
+  - scrolling orizzontale snap mantenuto,
+  - nessuna interferenza con lo scroll verticale pagina durante interazione touch/mouse.
