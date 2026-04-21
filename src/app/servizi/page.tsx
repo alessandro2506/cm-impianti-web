@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ServiziPage() {
   return (
     <section className="relative section-bg scroll-mt-28 pt-16 pb-20 lg:pt-20 lg:pb-28 bg-[radial-gradient(circle_at_top_right,_rgba(63,175,255,0.16),_transparent_45%),#07162D]">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
         <SectionTitle
           label="Specializzazioni"
           title="SERVIZI CM IMPIANTI"

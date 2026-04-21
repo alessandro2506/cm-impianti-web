@@ -190,7 +190,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: real image */}
-            <div className="relative h-80 overflow-hidden rounded-2xl border border-[#C9A84C]/10 lg:h-[420px]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#C9A84C]/10 lg:aspect-[5/3]">
               <Image
                 src="https://www.cmimpianti.info/wp-content/uploads/2021/02/slide-refitting-cm-impianti.jpg"
                 alt="CM Impianti refitting cantiere navale"

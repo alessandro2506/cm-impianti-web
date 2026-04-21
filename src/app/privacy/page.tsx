@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="max-w-4xl mx-auto px-5 sm:px-8 py-16 lg:py-24">
+    <section className="mx-auto w-full max-w-4xl px-6 py-16 md:px-12 md:py-24">
       <h1 className="font-heading text-5xl text-[#F0F4F8]">Privacy Policy</h1>
       <div className="mt-8 space-y-5 text-[#C9DAEC]">
         <p>CM Impianti S.r.l. tratta i dati personali in conformita al Regolamento UE 2016/679 (GDPR).</p>

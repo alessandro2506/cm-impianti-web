@@ -149,7 +149,7 @@ export default function ChiSiamoPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="relative h-[500px] rounded-lg overflow-hidden">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg lg:aspect-[5/6]">
                 <Image
                   src="https://www.cmimpianti.info/wp-content/uploads/2021/03/gru1.jpg"
                   alt="CM Impianti — operatività cantiere"

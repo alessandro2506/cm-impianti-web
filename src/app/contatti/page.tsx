@@ -13,8 +13,8 @@ export default function ContattiPage() {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 lg:pt-20 pb-16 scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="scroll-mt-28 pb-16 pt-12 md:pt-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <SectionTitle
             label="Parliamo del tuo progetto"
             title="CONTATTI"
@@ -23,8 +23,8 @@ export default function ContattiPage() {
         </div>
       </section>
 
-      <section className="pb-20 lg:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pb-16 md:pb-24 lg:pb-28">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* FORM */}
             <div className="lg:col-span-3">

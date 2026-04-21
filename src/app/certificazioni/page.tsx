@@ -21,8 +21,8 @@ export default function CertificazioniPage() {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 lg:pt-20 pb-16 scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="scroll-mt-28 pb-16 pt-12 md:pt-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <SectionTitle
             label="Fiducia documentata"
             title="CERTIFICAZIONI"
@@ -33,7 +33,7 @@ export default function CertificazioniPage() {
 
       {/* INTRO CARD */}
       <section className="pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: "🏆", label: "Bureau Veritas", desc: "Il marchio di qualità navale più riconosciuto internazionalmente." },
@@ -51,8 +51,8 @@ export default function CertificazioniPage() {
       </section>
 
       {/* LISTA CERTIFICAZIONI PER AREA */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           {CERT_AREAS.map((area) => {
             const certs = CERTIFICATIONS.filter((c) => c.area === area.id);
             if (certs.length === 0) return null;
@@ -89,8 +89,8 @@ export default function CertificazioniPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#060B16] border-t border-[#1E2A42]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-[#060B16] py-16 border-t border-[#1E2A42]">
+        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
           <h2 className="font-heading text-4xl text-[#E8EDF5] mb-4">
             CERTIFICAZIONI DISPONIBILI SU RICHIESTA
           </h2>

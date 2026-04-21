@@ -176,3 +176,17 @@ Documento di riferimento per il sito **cm-impianti-web** (Next.js App Router).
   - aumentato lo stacco tra riquadro descrittivo (“30 anni al fianco…”) e blocco CTA,
   - regolazione applicata con `mb-16` sul blocco testo e rimozione del margine superiore CTA (`mt-0`),
   - obiettivo: evitare che il testo risulti visivamente “attaccato” ai bottoni `Richiedi Preventivo` e `Vedi i Progetti`.
+
+## 16. Normalizzazione Cross-Site Responsive (Apr 2026)
+
+- **Root cause risolta**:
+  - eliminata la coesistenza di due sistemi container (vecchio `px-4 sm:px-6 lg:px-8` vs nuovo layout fluido),
+  - unificati i wrapper su pagine e layout condivisi per coerenza visiva tra homepage, pagine elenco e pagine dettaglio.
+- **Standard contenitori globale**:
+  - pattern: `w-full` + `max-w-7xl mx-auto px-6 md:px-12`,
+  - applicato a `progetti`, `certificazioni`, `contatti`, `servizi`, `chi-siamo`, `privacy`, `cookie` e layout condivisi (`ServicePageLayout`, `CaseStudyLayout`).
+- **Vertical rhythm coerente**:
+  - sezioni principali riallineate a `py-16 md:py-24` (con estensioni `lg:py-28` dove necessario).
+- **Fluidità visuale**:
+  - ridotte aree con misure rigide non essenziali nei blocchi hero/feature,
+  - mantenuta navigazione sticky con comportamento uniforme su tutti i template.

@@ -28,7 +28,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden">
+      <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-16 md:pb-20">
         <div className="absolute inset-0 z-0">
           <Image
             src={cs.heroImage}
@@ -40,7 +40,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/50 to-[#0A0F1E]/20" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 lg:pt-24 scroll-mt-28">
+        <div className="relative z-10 mx-auto w-full max-w-7xl scroll-mt-28 px-6 pt-16 md:px-12 md:pt-20">
           <nav className="flex items-center gap-2 text-xs text-[#9BA8C0] mb-8">
             <Link href="/" className="hover:text-[#C9A84C] transition-colors">Home</Link>
             <span>/</span>
@@ -60,7 +60,7 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
 
       {/* STATS */}
       <section className="bg-[#060B16] border-y border-[#1E2A42]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#1E2A42]">
             {cs.stats.map((stat) => (
               <div key={stat.label} className="px-6 py-8 text-center">
@@ -73,8 +73,8 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
       </section>
 
       {/* DESCRIZIONE */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 lg:py-28">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2 space-y-10">
               <div>
@@ -127,8 +127,8 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
 
       {/* GALLERY */}
       {cs.gallery.length > 1 && (
-        <section className="pb-20 lg:pb-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="pb-16 md:pb-24 lg:pb-28">
+          <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
             <h2 className="font-heading text-3xl text-[#E8EDF5] mb-8">GALLERIA</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cs.gallery.map((img, i) => (
@@ -148,8 +148,8 @@ export default function CaseStudyLayout({ cs }: { cs: CaseStudyData }) {
       )}
 
       {/* CTA */}
-      <section className="py-16 bg-[#060B16] border-t border-[#1E2A42]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-[#060B16] py-16 border-t border-[#1E2A42]">
+        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
           <h2 className="font-heading text-4xl text-[#E8EDF5] mb-4">
             HAI UN PROGETTO SIMILE?
           </h2>
